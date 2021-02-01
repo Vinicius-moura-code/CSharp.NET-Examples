@@ -1,0 +1,16 @@
+C:\Users\vinic\Documents\Workspace IF\.net\reviewApplication\obj\Debug\net5.0\reviewApplication.csprojAssemblyReference.cache
+C:\Users\vinic\Documents\Workspace IF\.net\reviewApplication\obj\Debug\net5.0\reviewApplication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vinic\Documents\Workspace IF\.net\reviewApplication\obj\Debug\net5.0\reviewApplication.AssemblyInfoInputs.cache
+C:\Users\vinic\Documents\Workspace IF\.net\reviewApplication\obj\Debug\net5.0\reviewApplication.AssemblyInfo.cs
+C:\Users\vinic\Documents\Workspace IF\.net\reviewApplication\obj\Debug\net5.0\reviewApplication.csproj.CoreCompileInputs.cache
+C:\Users\vinic\Documents\Workspace IF\.net\reviewApplication\bin\Debug\net5.0\reviewApplication.exe
+C:\Users\vinic\Documents\Workspace IF\.net\reviewApplication\bin\Debug\net5.0\reviewApplication.deps.json
+C:\Users\vinic\Documents\Workspace IF\.net\reviewApplication\bin\Debug\net5.0\reviewApplication.runtimeconfig.json
+C:\Users\vinic\Documents\Workspace IF\.net\reviewApplication\bin\Debug\net5.0\reviewApplication.runtimeconfig.dev.json
+C:\Users\vinic\Documents\Workspace IF\.net\reviewApplication\bin\Debug\net5.0\reviewApplication.dll
+C:\Users\vinic\Documents\Workspace IF\.net\reviewApplication\bin\Debug\net5.0\ref\reviewApplication.dll
+C:\Users\vinic\Documents\Workspace IF\.net\reviewApplication\bin\Debug\net5.0\reviewApplication.pdb
+C:\Users\vinic\Documents\Workspace IF\.net\reviewApplication\obj\Debug\net5.0\reviewApplication.dll
+C:\Users\vinic\Documents\Workspace IF\.net\reviewApplication\obj\Debug\net5.0\ref\reviewApplication.dll
+C:\Users\vinic\Documents\Workspace IF\.net\reviewApplication\obj\Debug\net5.0\reviewApplication.pdb
+C:\Users\vinic\Documents\Workspace IF\.net\reviewApplication\obj\Debug\net5.0\reviewApplication.genruntimeconfig.cache
