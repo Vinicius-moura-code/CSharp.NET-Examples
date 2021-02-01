@@ -1,0 +1,16 @@
+/home/vinimoura/Workspace/Reposit Git/dotnet/FirstApplication/bin/Debug/net5.0/FirstApplication
+/home/vinimoura/Workspace/Reposit Git/dotnet/FirstApplication/bin/Debug/net5.0/FirstApplication.deps.json
+/home/vinimoura/Workspace/Reposit Git/dotnet/FirstApplication/bin/Debug/net5.0/FirstApplication.runtimeconfig.json
+/home/vinimoura/Workspace/Reposit Git/dotnet/FirstApplication/bin/Debug/net5.0/FirstApplication.runtimeconfig.dev.json
+/home/vinimoura/Workspace/Reposit Git/dotnet/FirstApplication/bin/Debug/net5.0/FirstApplication.dll
+/home/vinimoura/Workspace/Reposit Git/dotnet/FirstApplication/bin/Debug/net5.0/ref/FirstApplication.dll
+/home/vinimoura/Workspace/Reposit Git/dotnet/FirstApplication/bin/Debug/net5.0/FirstApplication.pdb
+/home/vinimoura/Workspace/Reposit Git/dotnet/FirstApplication/obj/Debug/net5.0/FirstApplication.csprojAssemblyReference.cache
+/home/vinimoura/Workspace/Reposit Git/dotnet/FirstApplication/obj/Debug/net5.0/FirstApplication.GeneratedMSBuildEditorConfig.editorconfig
+/home/vinimoura/Workspace/Reposit Git/dotnet/FirstApplication/obj/Debug/net5.0/FirstApplication.AssemblyInfoInputs.cache
+/home/vinimoura/Workspace/Reposit Git/dotnet/FirstApplication/obj/Debug/net5.0/FirstApplication.AssemblyInfo.cs
+/home/vinimoura/Workspace/Reposit Git/dotnet/FirstApplication/obj/Debug/net5.0/FirstApplication.csproj.CoreCompileInputs.cache
+/home/vinimoura/Workspace/Reposit Git/dotnet/FirstApplication/obj/Debug/net5.0/FirstApplication.dll
+/home/vinimoura/Workspace/Reposit Git/dotnet/FirstApplication/obj/Debug/net5.0/ref/FirstApplication.dll
+/home/vinimoura/Workspace/Reposit Git/dotnet/FirstApplication/obj/Debug/net5.0/FirstApplication.pdb
+/home/vinimoura/Workspace/Reposit Git/dotnet/FirstApplication/obj/Debug/net5.0/FirstApplication.genruntimeconfig.cache
