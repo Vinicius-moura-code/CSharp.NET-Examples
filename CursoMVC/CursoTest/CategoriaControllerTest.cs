@@ -22,6 +22,11 @@ namespace CursoTest
             _mockSet = new Mock<DbSet<Categoria>>();
             _mockContext = new Mock<Context>();
             _categoria = new Categoria { Id = 1, Descricao = "Teste Categoria" };
+
+            _mockContext.Setup(m => m.Categorias).Returns(_mockSet.Object);
+
+            _mockContext.Setup(m => m.Categorias.FindAsync(1)).ReturnsAsync(_categoria);
+
         }
 
         [Fact]
