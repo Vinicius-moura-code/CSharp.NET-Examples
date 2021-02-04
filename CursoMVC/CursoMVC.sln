@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CursoMVC", "CursoMVC\CursoMVC.csproj", "{B2E782B8-6B23-4806-A92A-350DC7D696C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CursoAPI", "CursoAPI\CursoAPI.csproj", "{B08A2C5D-BFA6-4AA5-9F8F-568DEF3AD552}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CursoTest", "CursoTest\CursoTest.csproj", "{D030F759-88BE-40AA-B0A4-BF22DF30FD9D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2E782B8-6B23-4806-A92A-350DC7D696C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2E782B8-6B23-4806-A92A-350DC7D696C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2E782B8-6B23-4806-A92A-350DC7D696C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2E782B8-6B23-4806-A92A-350DC7D696C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B08A2C5D-BFA6-4AA5-9F8F-568DEF3AD552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B08A2C5D-BFA6-4AA5-9F8F-568DEF3AD552}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B08A2C5D-BFA6-4AA5-9F8F-568DEF3AD552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B08A2C5D-BFA6-4AA5-9F8F-568DEF3AD552}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D030F759-88BE-40AA-B0A4-BF22DF30FD9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D030F759-88BE-40AA-B0A4-BF22DF30FD9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D030F759-88BE-40AA-B0A4-BF22DF30FD9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D030F759-88BE-40AA-B0A4-BF22DF30FD9D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F9730675-2475-41E1-A5ED-956C836683E2}
+	EndGlobalSection
+EndGlobal

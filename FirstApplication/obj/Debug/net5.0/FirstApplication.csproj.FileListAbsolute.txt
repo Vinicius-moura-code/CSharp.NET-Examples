@@ -14,3 +14,19 @@
 /home/vinimoura/Workspace/Reposit Git/dotnet/FirstApplication/obj/Debug/net5.0/ref/FirstApplication.dll
 /home/vinimoura/Workspace/Reposit Git/dotnet/FirstApplication/obj/Debug/net5.0/FirstApplication.pdb
 /home/vinimoura/Workspace/Reposit Git/dotnet/FirstApplication/obj/Debug/net5.0/FirstApplication.genruntimeconfig.cache
+C:\Users\vinic\source\repos\Vinicius-moura-code\examplesC-.NET\FirstApplication\bin\Debug\net5.0\firstApplication.exe
+C:\Users\vinic\source\repos\Vinicius-moura-code\examplesC-.NET\FirstApplication\bin\Debug\net5.0\firstApplication.deps.json
+C:\Users\vinic\source\repos\Vinicius-moura-code\examplesC-.NET\FirstApplication\bin\Debug\net5.0\firstApplication.runtimeconfig.json
+C:\Users\vinic\source\repos\Vinicius-moura-code\examplesC-.NET\FirstApplication\bin\Debug\net5.0\firstApplication.runtimeconfig.dev.json
+C:\Users\vinic\source\repos\Vinicius-moura-code\examplesC-.NET\FirstApplication\bin\Debug\net5.0\firstApplication.dll
+C:\Users\vinic\source\repos\Vinicius-moura-code\examplesC-.NET\FirstApplication\bin\Debug\net5.0\ref\firstApplication.dll
+C:\Users\vinic\source\repos\Vinicius-moura-code\examplesC-.NET\FirstApplication\bin\Debug\net5.0\firstApplication.pdb
+C:\Users\vinic\source\repos\Vinicius-moura-code\examplesC-.NET\FirstApplication\obj\Debug\net5.0\firstApplication.csprojAssemblyReference.cache
+C:\Users\vinic\source\repos\Vinicius-moura-code\examplesC-.NET\FirstApplication\obj\Debug\net5.0\firstApplication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vinic\source\repos\Vinicius-moura-code\examplesC-.NET\FirstApplication\obj\Debug\net5.0\firstApplication.AssemblyInfoInputs.cache
+C:\Users\vinic\source\repos\Vinicius-moura-code\examplesC-.NET\FirstApplication\obj\Debug\net5.0\firstApplication.AssemblyInfo.cs
+C:\Users\vinic\source\repos\Vinicius-moura-code\examplesC-.NET\FirstApplication\obj\Debug\net5.0\firstApplication.csproj.CoreCompileInputs.cache
+C:\Users\vinic\source\repos\Vinicius-moura-code\examplesC-.NET\FirstApplication\obj\Debug\net5.0\firstApplication.dll
+C:\Users\vinic\source\repos\Vinicius-moura-code\examplesC-.NET\FirstApplication\obj\Debug\net5.0\ref\firstApplication.dll
+C:\Users\vinic\source\repos\Vinicius-moura-code\examplesC-.NET\FirstApplication\obj\Debug\net5.0\firstApplication.pdb
+C:\Users\vinic\source\repos\Vinicius-moura-code\examplesC-.NET\FirstApplication\obj\Debug\net5.0\firstApplication.genruntimeconfig.cache

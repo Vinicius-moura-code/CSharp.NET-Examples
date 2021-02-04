@@ -2,7 +2,7 @@
   "runtimeOptions": {
     "additionalProbingPaths": [
       "C:\\Users\\vinic\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\vinic\\.nuget\\packages"
+      "/home/vinimoura/.nuget/packages/"
     ]
   }
 }
