@@ -11,13 +11,13 @@ using Xunit;
 
 namespace CursoTest
 {
-    public class CategoriaControllerTest
+    public class CategoriasControllerTest
     {
         private readonly Mock<DbSet<Categoria>> _mockSet;
         private readonly Mock<Context> _mockContext;
         private readonly Categoria _categoria;
 
-        public CategoriaControllerTest()
+        public CategoriasControllerTest()
         {
             _mockSet = new Mock<DbSet<Categoria>>();
             _mockContext = new Mock<Context>();

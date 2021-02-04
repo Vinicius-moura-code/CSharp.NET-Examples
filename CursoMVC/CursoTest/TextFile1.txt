@@ -1,0 +1,20 @@
+﻿Did not pass the test
+
+Error :
+
+ CursoTest.CategoriasControllerTest.Get_Categoria
+   Fonte: CategoriasControllerTest.cs linha 34
+   Duração: 1 ms
+
+  Mensagem: 
+    System.NotSupportedException : Unsupported expression: m => m.Categorias
+    Non-overridable members (here: Context.get_Categorias) may not be used in setup / verification expressions.
+  Rastreamento de Pilha: 
+    Guard.IsOverridable(MethodInfo method, Expression expression) linha 99
+    InvocationShape.ctor(LambdaExpression expression, MethodInfo method, IReadOnlyList`1 arguments, Boolean exactGenericTypeArguments, Boolean skipMatcherInitialization, Boolean allowNonOverridable) linha 84
+    ExpressionExtensions.<Split>g__Split|5_0(Expression e, Expression& r, InvocationShape& p, Boolean assignment, Boolean allowNonOverridableLastProperty) linha 324
+    ExpressionExtensions.Split(LambdaExpression expression, Boolean allowNonOverridableLastProperty) linha 149
+    Mock.SetupRecursive[TSetup](Mock mock, LambdaExpression expression, Func`4 setupLast, Boolean allowNonOverridableLastProperty) linha 606
+    Mock.Setup(Mock mock, LambdaExpression expression, Condition condition) linha 510
+    Mock`1.Setup[TResult](Expression`1 expression) linha 468
+    CategoriasControllerTest.ctor() linha 26
