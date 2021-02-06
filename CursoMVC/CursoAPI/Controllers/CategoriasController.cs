@@ -14,7 +14,7 @@ namespace CursoAPI.Controllers
     public class CategoriasController : ControllerBase
     {
         private readonly Context _context;
-
+        
         public CategoriasController(Context context)
         {
             _context = context;
@@ -32,7 +32,7 @@ namespace CursoAPI.Controllers
         public async Task<ActionResult<Categoria>> GetCategoria(int id)
         {
             var categoria = await _context.Categorias.FindAsync(id);
-
+            
             if (categoria == null)
             {
                 return NotFound();
@@ -42,7 +42,8 @@ namespace CursoAPI.Controllers
         }
 
         // PUT: api/Categorias/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
+        // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCategoria(int id, Categoria categoria)
         {
@@ -51,7 +52,7 @@ namespace CursoAPI.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(categoria).State = EntityState.Modified;
+            _context.SetModified(categoria);
 
             try
             {
@@ -73,11 +74,13 @@ namespace CursoAPI.Controllers
         }
 
         // POST: api/Categorias
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
+        // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
         public async Task<ActionResult<Categoria>> PostCategoria(Categoria categoria)
         {
             _context.Categorias.Add(categoria);
+            
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetCategoria", new { id = categoria.Id }, categoria);
@@ -85,7 +88,7 @@ namespace CursoAPI.Controllers
 
         // DELETE: api/Categorias/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCategoria(int id)
+        public async Task<ActionResult<Categoria>> DeleteCategoria(int id)
         {
             var categoria = await _context.Categorias.FindAsync(id);
             if (categoria == null)
@@ -96,7 +99,7 @@ namespace CursoAPI.Controllers
             _context.Categorias.Remove(categoria);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return categoria;
         }
 
         private bool CategoriaExists(int id)
