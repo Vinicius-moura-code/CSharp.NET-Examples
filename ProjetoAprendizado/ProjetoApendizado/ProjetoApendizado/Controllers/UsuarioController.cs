@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ProjetoApendizado.Models.ViewModels;
 
 namespace ProjetoApendizado.Controllers
 {
@@ -20,10 +21,12 @@ namespace ProjetoApendizado.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Incluir()
-        {
+       [HttpPost]
+       public ActionResult Incluir(UsuarioViewModel viewModel)
+       {
             return View();
         }
+
+       
     }
 }

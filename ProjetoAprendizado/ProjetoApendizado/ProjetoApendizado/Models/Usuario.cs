@@ -9,15 +9,12 @@ namespace ProjetoApendizado.Models
     {
         //Nome, idade, data de nascimento, sexo, cpf.
 
+        public int Id { get; set; }
         public string Nome { get; set;}
-
         public int Idade { get; set; }
-
         public DateTime DatadeNascimeto { get; set; }
-
-        public string Sexo { get; set; }
-
-        public int Cpf { get; set;  }
-
+        public int IdSexo { get; set; }
+        public string Cpf { get; set;  }
+        public virtual Sexo Sexo { get; set; }
     }
 } 

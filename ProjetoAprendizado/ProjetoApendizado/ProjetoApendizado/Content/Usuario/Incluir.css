@@ -1,0 +1,47 @@
+﻿
+h2 {
+    font-family: sans-serif;
+    font-weight: 600;
+    color: #000;
+}
+
+#DivUsuario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    #DivUsuario #frmUsuario {
+        background: #f3f3f3;
+        width: 30rem;
+        margin: 15px 0;
+        padding: 5px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border: 1.5px #000 solid;
+        border-radius: 5px;
+    }
+
+input[type=text], input[type=number], input[type=date], select {
+    width: 100px;
+    -webkit-transition: width .35s ease-in-out;
+    transition: width .35s ease-in-out;
+}
+
+    input[type=text]:focus {
+        width: 250px;
+    }
+
+    input[type=number]:focus {
+        width: 250px;
+    }
+
+    input[type=date]:focus {
+        width: 250px;
+    }
+
+    select:focus {
+        width: 150px;
+    }
