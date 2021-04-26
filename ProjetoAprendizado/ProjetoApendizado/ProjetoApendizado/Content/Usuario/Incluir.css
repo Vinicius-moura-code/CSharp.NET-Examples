@@ -11,7 +11,7 @@ h2 {
     align-items: center;
 }
 
-    #DivUsuario #frmUsuario {
+ #frmUsuario {
         background: #f3f3f3;
         width: 30rem;
         margin: 15px 0;
@@ -22,9 +22,11 @@ h2 {
         flex-direction: column;
         border: 1.5px #000 solid;
         border-radius: 5px;
+        animation: mudacor 10s linear infinite;
     }
 
-input[type=text], input[type=number], input[type=date], select {
+input[type=text], input[type=number], input[type=date], select[option] {
+    text-align: center;
     width: 100px;
     -webkit-transition: width .35s ease-in-out;
     transition: width .35s ease-in-out;
@@ -32,6 +34,7 @@ input[type=text], input[type=number], input[type=date], select {
 
     input[type=text]:focus {
         width: 250px;
+        animation: mudacor 10s linear infinite;
     }
 
     input[type=number]:focus {
@@ -43,5 +46,28 @@ input[type=text], input[type=number], input[type=date], select {
     }
 
     select:focus {
-        width: 150px;
+        width: 110px;
     }
+
+@keyframes mudacor {
+    0% {
+        border-color: red;
+    }
+
+    25% {
+        border-color: orangered;
+    }
+
+    50% {
+        border-color: blue;
+    }
+
+    100% {
+        border-color: green;
+    }
+}
+
+span{
+    color:red;
+    font-weight:bold;
+}

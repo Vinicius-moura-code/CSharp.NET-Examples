@@ -14,31 +14,38 @@
     <form id="frmUsuario" action="~/Usuario/Incluir" method="post">
         <label>Nome Usuário:</label>
         <input type="text" id="txtNome" name="Nome" />
-        <span style="color:red;" id="vdlNome"></span>
+
+        <span id="errorNome"></span>
+
         <br />
 
         <label>Idade Usuário:</label>
-        <input type="number" id="txtIdade" name="Idade" />
-        <span style="color:red;" id="vdlIdade"></span>
+        <input type="number" min="18" max="100" id="txtIdade" name="Idade" />
+
+        <span id="errorIdade"></span>
         <br />
 
         <label>Data de nascimento Usuário:</label>
         <input type="date" id="txtDatadeNascimeto" name="DatadeNascimeto" />
+        
+        <span id="errorData"></span>
+
         <br />
 
         <label>Cpf Usuário:</label>
-        <input type="text" id="txtCpf" name="Cpf" />
-        <span style="color:red;" id="error"></span>
-        <span style="color:#00ff21;" id="success"></span>
+        <input type="text" id="txtCpf" name="Cpf" maxlength="11" />
 
+        <span id="errorCpf"></span>
         <br />
 
         <label>Sexo Usuário:</label>
         <select id="ddlSexo">
-            <option>Masculino</option>
-            <option>Feminino</option>
-
+            <option value="">Selecione ...</option>
+            <option value="m">Masculino</option>
+            <option value="f">Feminino</option>
         </select>
+        <span id="errorSexo"></span>
+
         <br />
 
         <input id="btnSalvar" type="button" value="Salvar" />

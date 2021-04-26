@@ -1,40 +1,75 @@
-﻿$(document).ready(function () {
+﻿console.log('JavaScript carregado');
+
+$(document).ready(function () {
     btnSlvar();
 })
 
 function btnSlvar() {
     $("#btnSalvar").on('click', function () {
-        var retorno = ValidacaoForm();
-        if (retorno == true) {
-            validaCPF();
-            //alert("Salvo com sucesso")
+
+        if (ValidacaoForm()) {
+            IncluirUsuario();
         }
     })
 }
-
 //Validar formulario
 function ValidacaoForm() {
+    var validar = false;
+
+    //let toName = true;
+    //let toIdade = true;
+    //let toCpf = true;
+    //let toSexo = true;
 
     ZerarValidacao();
-    if ($('#txtNome').val().trim == "") {
-        $("#vdlNome").text("Preencha o nome do user")
-        return false;
+
+    if ($('#txtNome').val().trim() == "" || $('#txtNome').val() == null) {
+        $('#errorNome').text("Preencha o nome do user");
+        validar = false;
+
     }
-    
 
-    return true;
+    if ($('#txtIdade').val() == "") {
+        $('#errorIdade').text("Selecione uma idade")
+        validar = false;
+    }
+
+    if ($('#txtCpf').val() == "") {
+        $("#errorCpf").text("Preencha o Cpf");
+    }
+    else if (!validaCPF($('#txtCpf').val())) {
+        $("#errorCpf").text("CPF Invalido!");
+        validar = false;
+    }
+
+    if ($('#ddlSexo').val() == "") {
+        $("#errorSexo").text("Selecione uma opção");
+        validar = false;
+
+    }
+
+    if ($('#txtDatadeNascimeto').val() == "") {
+        $("#errorData").text("Selecione uma opção");
+        validar = false;
+    } else if (!validaData($('#txtDatadeNascimeto').val())) {
+        $("#errorData").text("Data invalida!");
+        validar = false;
+    }
+
+    //if (toName == true && toIdade == true && toCpf == true && toSexo == true) {
+    //    validar = true;
+    //}
+    return validar;
 }
-
 
 function ZerarValidacao() {
-    $('#vdlNome').text("");
-    $('#vdlIdade').text("");
-    $('#vdlCpf').text("");
+    $('#errorNome').text("");
+    $('#errorIdade').text("");
+    $('#errorCpf').text("");
+    $('#errorSexo').text("");
 }
 
-console.log('JavaScript carregado');
 function validaCPF(cpf) {
-    let cpf = $('#txtcpf').val();
 
     if (cpf.length != 11) {
         return false;
@@ -43,7 +78,7 @@ function validaCPF(cpf) {
         var digitos = cpf.substring(9);
         var soma = 0;
 
-        // validacaoPrimeiroDigito
+        // validacao do Primeiro Digito
         for (var i = 10; i > 1; i--) {
             soma += numeros.charAt(10 - i) * i;
         }
@@ -59,7 +94,7 @@ function validaCPF(cpf) {
             soma += numeros.charAt(11 - k) * k;
         }
         resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
-        /*validSegundoDigito8*/
+        /*validar o Segundo Digito8*/
 
         if (resultado != digitos.charAt(1)) {
             return false;
@@ -69,3 +104,71 @@ function validaCPF(cpf) {
     }
 }
 
+function validaData(data) {
+
+    /*recuperado
+     * var ano = data.substring(0, 4);
+    var mes = data.substring(5, 7);
+    var dia = data.substring(8, 10);
+
+    var str = dia + "/" + mes + "/" + ano;*/
+
+    var isDate = new Date(data).getTime();
+
+
+    console.log()
+
+    if (isNaN(isDate)) {
+        return false;
+    }
+    return true;
+}
+
+function IncluirUsuario() {
+    //Utilizar ajax pra conecxoes
+
+    /*$.ajax({
+    type: "POST",
+    url : url,
+    data:
+    })*/
+
+    $.ajax({
+        type: "POST",
+        url: "/Usuario/Incluir",
+        data: objeto,
+        success: success,
+
+    })
+    //POST
+    $.post('/Usuario/Incluir', { Nome: "Vinicius" }).done(function (res) {
+
+
+        if (res.status == 200) {
+            alert(res.mensagem)
+        } else if (res.status == 500) {
+            alert(res.mensagem);
+        } else {
+            //Validacao de tela
+            var listaErro = ""
+            for (var i = 0; i < res.erros.length; i++) {
+                //alert(res.erros[i]); //customizar
+                listaErro += res.erros[i] + "\n\n"
+            }
+            listaErro += "</ul>"
+            alert(listaErro);
+        }
+    });
+}
+
+var objeto = montarRequestIncluir();
+
+function montarRequestIncluir() {
+    return {
+        Nome: $('#txtNome').val(),
+        Idade: $('#txtIdade').val(),
+        Cpf: $('#txtIdade').val(),
+        DatadeNascimeto: $('#txtDatadeNascimeto').val()
+    }
+}
+//structur OBJ -> {NOME_CAMPO: "VALOR_CAMPO_STRING"}
