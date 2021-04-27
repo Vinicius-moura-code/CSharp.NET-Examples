@@ -28,6 +28,7 @@ function ValidacaoForm() {
         validar = false;
 
     }
+    $('#txtNome').val() == "";
 
     if ($('#txtIdade').val() == "") {
         $('#errorIdade').text("Selecione uma idade")
@@ -51,7 +52,7 @@ function ValidacaoForm() {
     if ($('#txtDatadeNascimeto').val() == "") {
         $("#errorData").text("Selecione uma opção");
         validar = false;
-    } else if (!validaData($('#txtDatadeNascimeto').val())) {
+    } else if (!validaData($("#txtDatadeNascimeto").val())) {
         $("#errorData").text("Data invalida!");
         validar = false;
     }
@@ -67,6 +68,7 @@ function ZerarValidacao() {
     $('#errorIdade').text("");
     $('#errorCpf').text("");
     $('#errorSexo').text("");
+    $('#errorData').text("");
 }
 
 function validaCPF(cpf) {
@@ -105,70 +107,97 @@ function validaCPF(cpf) {
 }
 
 function validaData(data) {
+    ////data - 2021-09-12
+    //var ano = data.substring(0, 4);
+    //var mes = data.substring(5, 7);
+    //var dia = data.substring(8, 10);
 
-    /*recuperado
-     * var ano = data.substring(0, 4);
-    var mes = data.substring(5, 7);
-    var dia = data.substring(8, 10);
+    //var str = dia + "/" + mes + "/" + ano;
+    //str - 12/09/2021
 
-    var str = dia + "/" + mes + "/" + ano;*/
-
+    //new Date('yyyy-MM-dd')
     var isDate = new Date(data).getTime();
-
-
-    console.log()
 
     if (isNaN(isDate)) {
         return false;
     }
+
     return true;
 }
 
-function IncluirUsuario() {
-    //Utilizar ajax pra conecxoes
+//VERIFICAR JQUERY-VALIDATOR
 
-    /*$.ajax({
-    type: "POST",
-    url : url,
-    data:
-    })*/
+
+function IncluirUsuario() {
+    /////UTILIZAR AJAX PARA CONECTAR COM A CONTROLLER USUARIO
+    //$.ajax({
+    //  type: "POST",
+    // url: url,
+    //data: data,
+    //success: success,
+    //dataType: dataType
+    //    });
+
+    //~ -> Ele vai pegar todo o caminho anterior da pasta;
+
+    //{ Nome: "Rafael" } - Request
+
+    var objeto = MontarRequestIncluir();
 
     $.ajax({
         type: "POST",
         url: "/Usuario/Incluir",
         data: objeto,
-        success: success,
-
-    })
-    //POST
-    $.post('/Usuario/Incluir', { Nome: "Vinicius" }).done(function (res) {
-
-
-        if (res.status == 200) {
-            alert(res.mensagem)
-        } else if (res.status == 500) {
-            alert(res.mensagem);
-        } else {
-            //Validacao de tela
-            var listaErro = ""
-            for (var i = 0; i < res.erros.length; i++) {
-                //alert(res.erros[i]); //customizar
-                listaErro += res.erros[i] + "\n\n"
+        success: function (res) {
+            if (res.status == 200) {
+                alert(res.mensagem);
+            } else if (res.status == 500) {
+                alert(res.mensagem);
             }
-            listaErro += "</ul>"
-            alert(listaErro);
-        }
+            else {
+                //Validação de tela;
+                var listaErro = "";
+                //LIST - STRING  [{"Preencha campo Nome"}, {"Preencha campo Cpf"}]
+
+                for (var i = 0; i < res.erros.length; i++) {
+                    listaErro += res.erros[i] + "\n\n";
+                }
+                $("#errosResponse").text(listaErro + "<br>")
+                alert(listaErro);
+            }
+        },dataType: JSON
+            
     });
+
+    //$.post('/Usuario/Incluir', objeto).done(function (res) { //res - Response
+
+    //    //200  - Ok, 500 - ErroInterno, 404 - ErroValidacao
+    //    if (res.status == 200) {
+    //        alert(res.mensagem);
+    //    } else if (res.status == 500) {
+    //        alert(res.mensagem);
+    //    }
+    //    else {
+    //        //Validação de tela;
+    //        var listaErro = "";
+    //        //LIST - STRING  [{"Preencha campo Nome"}, {"Preencha campo Cpf"}]
+
+    //        for (var i = 0; i < res.erros.length; i++) {
+    //            listaErro += res.erros[i] + "\n\n";
+    //        }
+    //        alert(listaErro);
+    //    }
+    //});
+
 }
 
-var objeto = montarRequestIncluir();
-
-function montarRequestIncluir() {
+function MontarRequestIncluir() {
     return {
-        Nome: $('#txtNome').val(),
-        Idade: $('#txtIdade').val(),
-        Cpf: $('#txtIdade').val(),
-        DatadeNascimeto: $('#txtDatadeNascimeto').val()
-    }
+        Nome: $("#txtNome").val(),
+        Idade: $("#txtIdade").val(),
+        Cpf: $("#txtCpf").val(),
+        DataNascimento: $("#txtDatadeNascimeto").val()
+    };
 }
-//structur OBJ -> {NOME_CAMPO: "VALOR_CAMPO_STRING"}
+
+//Estrutura OBJ -> { NOME_CAMPO: "VALOR_CAMPO_STRING" , NOME_CAMPO: VALOR_CAMPO_INTEIRO }

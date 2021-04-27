@@ -27,69 +27,69 @@ namespace ProjetoApendizado.Controllers
             try
             {
 
-                string teste = null;
-                teste.Replace('.', ',');
+                //var teste = "Rafael Nascimento."
+                //replace('.',',') -> Rafael Nascimento,
 
+                //VALIDAÇÃO_BASICA_DO_VIEW_MODEL
                 var retornoValidacao = ValidacaoViewModel(viewModel);
+
                 if (retornoValidacao.Count() > 0)
-                {
                     return Json(new { status = 404, erros = retornoValidacao.ToList() });
-                }
 
-                //CONVERTER_View_Model_PARA_MODEL
+                //COMVERTER_VIEWMODEL_PARA_MODEL
 
-                //EXECUTAR_INSERT
+                //EXECUTAR_INSERT_NO_BANCO
 
-                //RETORNAR_ALGUMA_SATISFACAO
+                //RETORNAR_ALGUMA_SATISFAÇÃO OU RETORNAR_UMA_NEGAÇÃO
 
-                //Status
-                return Json(new { status = 200, mensagem = "Usuário incluido com sucesso!" });
-
-
+                // Status, Valor (N valores , N tipos), Mensagem (Opcional)
+                return Json(new { status = 200, mensagem = "Usuário Incluído com sucesso!" });
             }
             catch (Exception ex)
             {
-                return Json(new { status = 500, mensagem = "Sistema temporariamente indisponivel, favor tente novamente mais tarde." });
-
+                return Json(new { status = 500, mensagem = "Sistema temporariamente indisponível, favor tente novamente mais tarde!" });
             }
-            //Validacao_basica_DO _View_Model
-
         }
 
-        //METODOS_VALIDACAO
+
+        //METODOS_VALIDAÇÃO
 
         private List<string> ValidacaoViewModel(UsuarioViewModel viewModel)
         {
-            //Instanciar
+            //List<string> erros;
+            //Não instanciou, então valor = null;
+
+            //Após instanciar ele vai receber o proprio valor inicial = Count = 0;
             List<string> erros = new List<string>();
 
             if (string.IsNullOrEmpty(viewModel.Nome))
             {
-                erros.Add("Favor, preencha o nome do cliente");
+                erros.Add("Favor preencha o Nome do cliente.");
             }
 
             if (viewModel.Idade == 0)
             {
-                erros.Add("Favor, preencha a idade do cliente");
+                erros.Add("Favor preencha a Idade do cliente");
             }
 
             if (string.IsNullOrEmpty(viewModel.Cpf))
             {
-                erros.Add("Favor, preencha  o Cpf do cliente");
+                erros.Add("Favor preencha o Cpf do cliente");
             }
 
+            //{01/01/0001}
             if (viewModel.DatadeNascimeto == null || viewModel.DatadeNascimeto == DateTime.MinValue)
             {
-                erros.Add("Favor, preencha  o Cpf do cliente");
+                erros.Add("Favor preencha a Data de Nascimento do cliente");
             }
 
             return erros;
         }
 
-        /*private UsuarioController ConverterViewModelToModel(UsuarioViewModel viewModel)
-        {
+        //private Usuario ConverterViewModelToModel(UsuarioViewModel viewModel)
+        //{
 
-        }*/
+        //}
 
 
     }
