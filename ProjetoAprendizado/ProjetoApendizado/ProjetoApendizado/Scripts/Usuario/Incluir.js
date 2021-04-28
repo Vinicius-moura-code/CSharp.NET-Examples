@@ -9,7 +9,6 @@ function btnSalvar() {
 
         if (ValidacaoForm()) {
             console.log("Validação Ok");
-            $('#exampleModal').modal('show')
             IncluirUsuario();
         }
     })
@@ -69,6 +68,7 @@ function ZerarValidacao() {
     $('#errorCpf').text("");
     $('#errorSexo').text("");
     $('#errorData').text("");
+    $('#divErro').html("");
 }
 
 function validaCPF(cpf) {
@@ -139,25 +139,27 @@ function IncluirUsuario() {
         dataType: 'json',
         success: function (res) {
             if (res.status == 200) {
+                $('#exampleModal').modal('show');
+            } else if (res.status == 500) {
                 alert(res.mensagem);
-            }
-        },
-        error: function (err) {
-
-            if (err.status == 500) {
-                alert(err.mensagem);
             } else {
                 var listaErro = "";
                 //LIST - STRING  [{"Preencha campo Nome"}, {"Preencha campo Cpf"}]
+                $("#divErro").html("");
 
-                for (var i = 0; i < err.erros.length; i++) {
-                    listaErro += err.erros[i] + "\n\n";
+                var divErro = $("#divErro")
+
+                divErro.append('<ul class= "list-group" >');
+                for (var i = 0; i < res.erros.length; i++) {
+                    divErro.append('<li class="list-group-item list-group-item-danger"">' + res.erros[i] + "</li>");
                 }
-                $('div.errosResponse').append('<li>' + listaErro + '</li>');
+
+                divErro.append("</ul>")
                 console.log(listaErro);
             }
-        }
-      
+        },
+
+
     });
 
     //$.post('/Usuario/Incluir', objeto).done(function (res) { //res - Response
@@ -186,7 +188,7 @@ function MontarRequestIncluir() {
         Nome: $("#txtNome").val(),
         Idade: $("#txtIdade").val(),
         Cpf: $("#txtCpf").val(),
-        DataNascimento: $("#txtDatadeNascimeto").val()
+        DatadeNascimeto: $("#txtDatadeNascimeto").val()
     };
 }
 

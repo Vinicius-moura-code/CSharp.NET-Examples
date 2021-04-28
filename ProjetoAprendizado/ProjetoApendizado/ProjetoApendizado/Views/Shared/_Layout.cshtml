@@ -24,7 +24,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Início", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Incluir", "Incluir", "Usuario")</li>
+                    <li>@Html.ActionLink("Incluir", ("#exampleModal"), "Usuario", new { data_toggle = "modal", data_target = "#exampleModal" })</li>
                     <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
                 </ul>
             </div>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ProjetoApendizado.Models;
 using ProjetoApendizado.Models.ViewModels;
 
 namespace ProjetoApendizado.Controllers
@@ -43,6 +44,8 @@ namespace ProjetoApendizado.Controllers
                     return Json(new { status = 404, erros = retornoValidacao.ToList() });
 
                 //COMVERTER_VIEWMODEL_PARA_MODEL
+
+                var usuario = ConverterViewModelToModel(viewModel);
 
                 //EXECUTAR_INSERT_NO_BANCO
 
@@ -91,9 +94,18 @@ namespace ProjetoApendizado.Controllers
             return erros;
         }
 
-        //private Usuario ConverterViewModelToModel(UsuarioViewModel viewModel)
-        //{
+        private Usuario ConverterViewModelToModel(UsuarioViewModel viewModel)
+        {
+            Usuario model = new Usuario();
 
-        //}
+            model.Cpf = viewModel.Cpf;
+            model.DatadeNascimeto = viewModel.DatadeNascimeto;
+            model.Idade = viewModel.Idade;
+            model.Nome = viewModel.Nome;
+            model.DataInclusao = DateTime.Now;
+            model.Ativo = true;
+
+            return model;
+        }
     }
 }
