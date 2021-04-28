@@ -1,4 +1,6 @@
-﻿
+﻿body {
+    background: #dcd1f0;
+}
 h2 {
     font-family: sans-serif;
     font-weight: 600;
@@ -6,28 +8,29 @@ h2 {
 }
 
 #DivUsuario {
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
 }
 
- #frmUsuario {
-        background: #f3f3f3;
-        width: 30rem;
-        margin: 15px 0;
-        padding: 5px 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        border: 1.5px #000 solid;
-        border-radius: 5px;
-        animation: mudacor 10s linear infinite;
-    }
+#frmUsuario {
+    background: #f3f3f3;
+    width: 30rem;
+    margin: 15px 0;
+    padding: 5px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1.5px #000 solid;
+    border-radius: 5px;
+    animation: mudacor 10s linear infinite;
+}
 
-input[type=text], input[type=number], input[type=date], select[option] {
+input, select {
+    color: #000;
     text-align: center;
-    width: 100px;
+    width: 250px;
     -webkit-transition: width .35s ease-in-out;
     transition: width .35s ease-in-out;
 }
@@ -35,18 +38,25 @@ input[type=text], input[type=number], input[type=date], select[option] {
     input[type=text]:focus {
         width: 250px;
         animation: mudacor 10s linear infinite;
+        background: #dcd1f0;
     }
 
     input[type=number]:focus {
         width: 250px;
+        animation: mudacor 10s linear infinite;
+        background: #dcd1f0;
     }
 
     input[type=date]:focus {
         width: 250px;
+        animation: mudacor 10s linear infinite;
+        background: #dcd1f0;
     }
 
     select:focus {
-        width: 110px;
+        width: 250px;
+        animation: mudacor 10s linear infinite;
+        background: #dcd1f0;
     }
 
 @keyframes mudacor {
@@ -67,7 +77,23 @@ input[type=text], input[type=number], input[type=date], select[option] {
     }
 }
 
-span{
-    color:red;
-    font-weight:bold;
+.badge {
+    background: #f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #400b65;
+    animation: mudacor 10s linear infinite;
+}
+
+.btn {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    color: #400b65;
+    animation: mudacor 10s linear infinite;
+}
+
+.btn:hover {
+    background: #f3f3;
 }

@@ -1,20 +1,22 @@
 ﻿console.log('JavaScript carregado');
 
 $(document).ready(function () {
-    btnSlvar();
+    btnSalvar();
 })
 
-function btnSlvar() {
+function btnSalvar() {
     $("#btnSalvar").on('click', function () {
 
         if (ValidacaoForm()) {
+            console.log("Validação Ok");
+            $('#exampleModal').modal('show')
             IncluirUsuario();
         }
     })
 }
 //Validar formulario
 function ValidacaoForm() {
-    var validar = false;
+    var validar = true;
 
     //let toName = true;
     //let toIdade = true;
@@ -28,7 +30,6 @@ function ValidacaoForm() {
         validar = false;
 
     }
-    $('#txtNome').val() == "";
 
     if ($('#txtIdade').val() == "") {
         $('#errorIdade').text("Selecione uma idade")
@@ -37,8 +38,7 @@ function ValidacaoForm() {
 
     if ($('#txtCpf').val() == "") {
         $("#errorCpf").text("Preencha o Cpf");
-    }
-    else if (!validaCPF($('#txtCpf').val())) {
+    } else if (!validaCPF($('#txtCpf').val())) {
         $("#errorCpf").text("CPF Invalido!");
         validar = false;
     }
@@ -129,18 +129,6 @@ function validaData(data) {
 
 
 function IncluirUsuario() {
-    /////UTILIZAR AJAX PARA CONECTAR COM A CONTROLLER USUARIO
-    //$.ajax({
-    //  type: "POST",
-    // url: url,
-    //data: data,
-    //success: success,
-    //dataType: dataType
-    //    });
-
-    //~ -> Ele vai pegar todo o caminho anterior da pasta;
-
-    //{ Nome: "Rafael" } - Request
 
     var objeto = MontarRequestIncluir();
 
@@ -148,25 +136,28 @@ function IncluirUsuario() {
         type: "POST",
         url: "/Usuario/Incluir",
         data: objeto,
+        dataType: 'json',
         success: function (res) {
             if (res.status == 200) {
                 alert(res.mensagem);
-            } else if (res.status == 500) {
-                alert(res.mensagem);
             }
-            else {
-                //Validação de tela;
+        },
+        error: function (err) {
+
+            if (err.status == 500) {
+                alert(err.mensagem);
+            } else {
                 var listaErro = "";
                 //LIST - STRING  [{"Preencha campo Nome"}, {"Preencha campo Cpf"}]
 
-                for (var i = 0; i < res.erros.length; i++) {
-                    listaErro += res.erros[i] + "\n\n";
+                for (var i = 0; i < err.erros.length; i++) {
+                    listaErro += err.erros[i] + "\n\n";
                 }
-                $("#errosResponse").text(listaErro + "<br>")
-                alert(listaErro);
+                $('div.errosResponse').append('<li>' + listaErro + '</li>');
+                console.log(listaErro);
             }
-        },dataType: JSON
-            
+        }
+      
     });
 
     //$.post('/Usuario/Incluir', objeto).done(function (res) { //res - Response
@@ -181,7 +172,6 @@ function IncluirUsuario() {
     //        //Validação de tela;
     //        var listaErro = "";
     //        //LIST - STRING  [{"Preencha campo Nome"}, {"Preencha campo Cpf"}]
-
     //        for (var i = 0; i < res.erros.length; i++) {
     //            listaErro += res.erros[i] + "\n\n";
     //        }

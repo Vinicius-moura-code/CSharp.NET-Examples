@@ -9,11 +9,16 @@ namespace ProjetoApendizado.Controllers
 {
     public class UsuarioController : Controller
     {
-        // GET: Usuario
+
+        // url (americanas.com.br/Usuario(CONTROLLER)/Incluir(METODO))
+        //
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
+
+        //tipo(public, private), retorno(bool, string..) e Nome (IncluirUsuario)
 
         [HttpGet]
         public ActionResult Incluir()
@@ -24,6 +29,7 @@ namespace ProjetoApendizado.Controllers
         [HttpPost]
         public ActionResult Incluir(UsuarioViewModel viewModel)
         {
+
             try
             {
 
@@ -82,7 +88,6 @@ namespace ProjetoApendizado.Controllers
             {
                 erros.Add("Favor preencha a Data de Nascimento do cliente");
             }
-
             return erros;
         }
 
@@ -90,13 +95,5 @@ namespace ProjetoApendizado.Controllers
         //{
 
         //}
-
-
     }
 }
-
-/*
- * e criar o post ajax
- * 
- * Passar o error alert para o Spam
- */

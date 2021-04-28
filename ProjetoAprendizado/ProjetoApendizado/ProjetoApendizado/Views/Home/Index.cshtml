@@ -1,7 +1,46 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<link href="~/Content/Usuario/Incluir.css" rel="stylesheet" />
+<div class="container">
+    <h1>Bem-vindo a página de cadatro de usuarios</h1>
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
 
-<div>
-    Hi world
-</div>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Cadastrar-se
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Página de cadastro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Você esta preste a ser redirecionado para página de cadastro de usuario</p>
+                    <p>Deseja continuar ?</p>
+                </div>
+                <div class="modal-footer">
+
+                    <a href="/Usuario/Incluir" style="text-align:center;  font-weight:bold;" class="list-group-item list-group-item-success">
+                        Sim
+                    </a>
+                    <a href="#" style="text-align:center; font-weight:bold;" class="list-group-item list-group-item-danger " data-dismiss="modal">Não</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
