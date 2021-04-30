@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Buscar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Usuario/Buscar.css" rel="stylesheet" />
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/Usuario/Buscar.js"></script>
+
+<h2>Buscar</h2>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <input type="text" class="form-control" placeholder="Insira seu nome :" id="txtNomeUsuario" />
+            <input type="button" class="btn btn-outline-success" id="btnBuscar" value="buscar" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-borderless table-dark" id="tableUsuario"></table>
+        </div>
+    </div>
+</div>

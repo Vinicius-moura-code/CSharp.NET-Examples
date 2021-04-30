@@ -1,84 +1,86 @@
-﻿@{
-    ViewBag.Title = "Incluir";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿@*model List<ProjetoApendizado.Models.ViewModels.SexoViewModels>*@
 
-<link href="~/Content/Usuario/Incluir.css" rel="stylesheet" />
+    @{
+        ViewBag.Title = "Incluir";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 
-<script src="~/Scripts/jquery-3.4.1.min.js"></script>
-<script src="~/Scripts/Usuario/Incluir.js"></script>
+    <link href="~/Content/Usuario/Incluir.css" rel="stylesheet" />
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/Usuario/Incluir.js"></script>
 
 
-<h2>Incluir</h2>
-<div class="container-fluid" id="DivUsuario">
-    <div class="row">
-        <div class="col-md-4">
-        </div>
-        <div class="col-md-4">
+    <h2>Incluir</h2>
+    <div class="container-fluid" id="DivUsuario">
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
 
-            <form id="frmUsuario" action="~/Usuario/Incluir" method="post">
-                <div class="form-group-sm">
-                    <label for="txtNome">Nome Usuário:</label>
-                    <input type="text" class="form-control" placeholder="Insira seu nome :" id="txtNome" name="Nome" />
+                <form id="frmUsuario" action="~/Usuario/Incluir" method="post">
+                    <div class="form-group-sm">
+                        <label for="txtNome">Nome Usuário:</label>
+                        <input type="text" class="form-control" placeholder="Insira seu nome :" id="txtNome" name="Nome" />
 
-                    <span class="badge badge-secondary" id="errorNome"></span>
+                        <span class="badge badge-secondary" id="errorNome"></span>
 
-                    <br />
+                        <br />
 
-                    <label for="txtIdade">Idade Usuário:</label>
-                    <input type="number" class="form-control" placeholder="Insira sua idade :" min="18" max="100" id="txtIdade" name="Idade" />
+                        <label for="txtIdade">Idade Usuário:</label>
+                        <input type="number" class="form-control" placeholder="Insira sua idade :" min="18" max="100" id="txtIdade" name="Idade" />
 
-                    <span class="badge badge-secondary" id="errorIdade"></span>
-                    <br />
+                        <span class="badge badge-secondary" id="errorIdade"></span>
+                        <br />
 
-                    <label for="txtDatadeNascimeto">Data de nascimento Usuário:</label>
-                    <input type="date" class="form-control" id="txtDatadeNascimeto" name="DatadeNascimeto" />
+                        <label for="txtDatadeNascimeto">Data de nascimento Usuário:</label>
+                        <input type="date" class="form-control" id="txtDatadeNascimeto" name="DatadeNascimeto" />
 
-                    <span class="badge badge-secondary" id="errorData"></span>
+                        <span class="badge badge-secondary" id="errorData"></span>
 
-                    <br />
+                        <br />
 
-                    <label for="txtCpf">Cpf Usuário:</label>
-                    <input type="text" class="form-control" placeholder="Insira seu CPF :" id="txtCpf" name="Cpf" maxlength="11" />
+                        <label for="txtCpf">Cpf Usuário:</label>
+                        <input type="text" class="form-control" placeholder="Insira seu CPF :" id="txtCpf" name="Cpf" maxlength="11" />
 
-                    <span class="d-block badge badge-secondary" id="errorCpf"></span>
-                    <br />
+                        <span class="d-block badge badge-secondary" id="errorCpf"></span>
+                        <br />
 
-                    <select class="form-select" size="1" id="ddlSexo" aria-label="Default select example">
-                        <option value="" selected>Selecione . . .</option>
-                        <option value="m">Masculino</option>
-                        <option value="f">Feminino</option>
-                    </select>
+                        <select class="form-select" size="1" id="ddlSexo" aria-label="Default select example">
+                            <option value="" selected>Selecione . . .</option>
+                            <option value="1">Masculino</option>
+                            <option value="2">Feminino</option>
+                        </select>
 
-                    <span class=" d-block badge badge-secondary" id="errorSexo"></span>
+                        <span class=" d-block badge badge-secondary" id="errorSexo"></span>
 
-                    <br />
-                    <div id="divErro">
+                        <br />
+                        <div id="divErro">
+                        </div>
+                        <button type="button" class="btn btn-outline-success" id="btnSalvar" value="Salvar">Salvar</button>
                     </div>
-                    <button type="button" class="btn btn-outline-success" id="btnSalvar" value="Salvar">Salvar</button>
-                </div>
-            </form>
-        </div>
-        <div class="col-md-4">
+                </form>
+            </div>
+            <div class="col-md-4">
+            </div>
         </div>
     </div>
-</div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Página de cadastro do cliente</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <h3>Seu usuario foi cadastrado com sucesso!</h3>
-            </div>
-            <div class="modal-footer">
-                <h5>Obrigado por fazer parte da nossa história</h5>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Página de cadastro do cliente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3>Seu usuario foi cadastrado com sucesso!</h3>
+                </div>
+                <div class="modal-footer">
+                    <h5>Obrigado por fazer parte da nossa história</h5>
+                </div>
             </div>
         </div>
     </div>
-</div>

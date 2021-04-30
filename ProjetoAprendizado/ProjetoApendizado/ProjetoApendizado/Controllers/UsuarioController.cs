@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using ProjetoApendizado.Models;
 using ProjetoApendizado.Models.ViewModels;
+using ProjetoApendizado.Repository.Services;
 
 namespace ProjetoApendizado.Controllers
 {
@@ -12,21 +13,43 @@ namespace ProjetoApendizado.Controllers
     {
 
         // url (americanas.com.br/Usuario(CONTROLLER)/Incluir(METODO))
+        private readonly UsuarioServices _service;
         //
+
+        public UsuarioController()
+        {
+            _service = new UsuarioServices();
+        }
+
+
+
         [HttpGet]
         public ActionResult Index()
         {
             return View();
+
         }
 
         //tipo(public, private), retorno(bool, string..) e Nome (IncluirUsuario)
-
+        #region METODO_INCLUIR
         [HttpGet]
         public ActionResult Incluir()
         {
-            return View();
-        }
+            //List<SexoViewModels> viewModel = new List<SexoViewModels>();
 
+            //var todosSexos = new SexoService().BuscarTodosSexos();
+
+            //foreach (var item in todosSexos)
+            //{
+            //    viewModel.Add(new SexoViewModels
+            //    {
+            //        Descricao = item.Descricao,
+            //        Id = item.Id
+            //    )};
+
+            return View();
+
+        }
         [HttpPost]
         public ActionResult Incluir(UsuarioViewModel viewModel)
         {
@@ -49,20 +72,79 @@ namespace ProjetoApendizado.Controllers
 
                 //EXECUTAR_INSERT_NO_BANCO
 
+
+                bool valida = _service.Inserir(usuario);
+
+                if (valida)
+                {
+                    return Json(new { status = 200, mensagem = "Usuário Incluído com sucesso!" });
+
+                }
+                else
+                {
+                    return Json(new { status = 500, mensagem = "Erro interno" });
+
+                }
+
                 //RETORNAR_ALGUMA_SATISFAÇÃO OU RETORNAR_UMA_NEGAÇÃO
 
                 // Status, Valor (N valores , N tipos), Mensagem (Opcional)
-                return Json(new { status = 200, mensagem = "Usuário Incluído com sucesso!" });
             }
             catch (Exception ex)
             {
                 return Json(new { status = 500, mensagem = "Sistema temporariamente indisponível, favor tente novamente mais tarde!" });
             }
         }
+        #endregion
 
+
+        #region METODOS_BUSCAS
+        [HttpGet]
+        public ActionResult Buscar()
+        {
+
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Buscar(string NomeUsuario)
+        {
+            List<UsuarioViewModel> viewModel = new List<UsuarioViewModel>();
+
+            try
+            {
+
+                //BUsca_de_users
+                var listaUsuarios = _service.BuscarUsuarioPorNome(NomeUsuario);
+
+                //Converter_viewmodel_to_model
+
+                foreach (var item in listaUsuarios)
+                {
+                    viewModel.Add(new UsuarioViewModel
+                    {
+                        Nome = item.Nome,
+                        Cpf = item.Cpf,
+                        Idade = item.Idade,
+                    });
+
+
+                }
+                //Msg de reorno
+                return Json(new { status = 200, objeto = listaUsuarios });
+
+            }
+            catch (Exception)
+            {
+
+                return Json(new { status = 500, mensagem = "Sistema temporiamente indicponivel!!" });
+            }
+        }
+
+        #endregion
 
         //METODOS_VALIDAÇÃO
-
+        #region METODOS_PRIVADOS
         private List<string> ValidacaoViewModel(UsuarioViewModel viewModel)
         {
             //List<string> erros;
@@ -93,6 +175,18 @@ namespace ProjetoApendizado.Controllers
             }
             return erros;
         }
+        //private List<string> ValidacaoViewModel(string NomeUsuario)
+        //{
+        //    List<string> erros = new List<string>();
+
+        //    if (string.IsNullOrEmpty(NomeUsuario))
+        //    {
+        //        erros.Add("Preencha o nome do usuario");
+        //    }
+
+        //    return erros;
+
+        //}
 
         private Usuario ConverterViewModelToModel(UsuarioViewModel viewModel)
         {
@@ -104,8 +198,17 @@ namespace ProjetoApendizado.Controllers
             model.Nome = viewModel.Nome;
             model.DataInclusao = DateTime.Now;
             model.Ativo = true;
+            model.IdSexo = viewModel.IdSexo;
 
             return model;
         }
+        private Usuario ConverterViewModelToMOdel(string NomeUsuario)
+        {
+            Usuario model = new Usuario();
+            model.Nome = NomeUsuario;
+
+            return model;
+        }
+        #endregion
     }
 }

@@ -188,8 +188,11 @@ function MontarRequestIncluir() {
         Nome: $("#txtNome").val(),
         Idade: $("#txtIdade").val(),
         Cpf: $("#txtCpf").val(),
-        DatadeNascimeto: $("#txtDatadeNascimeto").val()
+        DatadeNascimeto: $("#txtDatadeNascimeto").val(),
+        IdSexo: $('#ddlSexo').val()
     };
 }
 
 //Estrutura OBJ -> { NOME_CAMPO: "VALOR_CAMPO_STRING" , NOME_CAMPO: VALOR_CAMPO_INTEIRO }
+
+//Dois Insert manual Sexo1

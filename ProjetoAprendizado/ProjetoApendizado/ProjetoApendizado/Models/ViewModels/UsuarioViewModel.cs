@@ -12,5 +12,6 @@ namespace ProjetoApendizado.Models.ViewModels
         public DateTime DatadeNascimeto { get; set; }
         public int IdSexo { get; set; }
         public string Cpf { get; set; }
+
     }
 }
