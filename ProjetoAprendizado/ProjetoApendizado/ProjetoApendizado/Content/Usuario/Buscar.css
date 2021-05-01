@@ -1,2 +1,10 @@
 ﻿body {
 }
+
+.nav {
+    display: block;
+}
+
+table {
+    text-align: center;
+}

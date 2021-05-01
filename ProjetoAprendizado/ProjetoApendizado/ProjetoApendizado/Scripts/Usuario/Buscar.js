@@ -53,12 +53,12 @@ function BuscarUsuario() {
                         $("#tableUsuario").append("<td>" +
                             '<ul class="nav nav-pills">' +
                             '<li class="nav-item">' +
-                            '<a class="nav-link btn btn-danger" href="#">Alterar<span class="badge badge-light"><img src="../../Content/Usuario/bin.png"/></span ></a >' +
+                            '<a class="nav-link btn btn-success" href="#">Alterar <span class="badge badge-light"><img src="../../Content/Usuario/alterar.png"/></span ></a >' +
                             '</li>' + '</ul>' + "</td>");
                         $("#tableUsuario").append("<td>" +
                             '<ul class="nav nav-pills">' +
                             '<li class="nav-item">' +
-                            '<a class="nav-link btn btn-danger" href="#">Alterar<span class="badge badge-light"><img src="../../Content/Usuario/bin.png"/></span ></a >' +
+                            '<a class="nav-link btn btn-danger" href="#">Deletar <span class="badge badge-light"><img src="../../Content/Usuario/bin.png"/></span ></a >' +
                             '</li>' + '</ul>' + "</td>");
 
 

@@ -1,6 +1,7 @@
 ﻿body {
     background: #dcd1f0;
 }
+
 h2 {
     font-family: sans-serif;
     font-weight: 600;
@@ -15,7 +16,7 @@ h2 {
 
 #frmUsuario {
     background: #f3f3f3;
-    width: 30rem;
+    width: 22rem;
     margin: 15px 0;
     padding: 5px 0;
     display: flex;
@@ -94,6 +95,13 @@ input, select {
     animation: mudacor 10s linear infinite;
 }
 
-.btn:hover {
-    background: #f3f3;
+    .btn:hover {
+        background: #f3f3;
+    }
+
+.badge:empty {
+    display: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
 }

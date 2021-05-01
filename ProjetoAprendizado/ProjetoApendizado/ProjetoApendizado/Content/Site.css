@@ -1,4 +1,5 @@
 ﻿body {
+    background: #dcd1f0;
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -21,4 +22,29 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.navbar-nav {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav-item a {
+    padding: 4px;
+    text-decoration: none;
+    margin-left: 15px;
+    color: white;
+    border-radius: 5px;
+}
+
+    .nav-item a:hover {
+        color: #000000;
+        background: white;
+        text-shadow: 1px 1px 2px #dcd1f0;
+    }
+
+
+footer {
+    position: ;
+    bottom:1px;
 }

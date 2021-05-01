@@ -8,18 +8,27 @@
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script src="~/Scripts/Usuario/Buscar.js"></script>
 
-<h2>Buscar</h2>
+
 
 <div class="container-fluid">
+    <br />
+    <h2 class="card-title">Buscar</h2>
+    <br />
     <div class="row">
-        <div class="col-md-12">
-            <input type="text" class="form-control" placeholder="Insira seu nome :" id="txtNomeUsuario" />
+        <div class="col-md-4">
+            <input style="width:100%;" type="text" class="form-control" placeholder="Insira seu nome :" id="txtNomeUsuario" />
+        </div>
+        <div class="col-md-2">
             <input type="button" class="btn btn-outline-success" id="btnBuscar" value="buscar" />
+
+        </div>
+        <div class="col-md-6">
         </div>
     </div>
+    <br />
     <div class="row">
         <div class="col-md-12">
-            <table class="table table-borderless table-dark" id="tableUsuario"></table>
+            <table class="table table-striped" id="tableUsuario"></table>
         </div>
     </div>
 </div>
