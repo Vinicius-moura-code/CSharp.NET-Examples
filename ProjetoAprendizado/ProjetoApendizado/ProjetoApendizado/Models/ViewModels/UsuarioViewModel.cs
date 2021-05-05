@@ -13,5 +13,7 @@ namespace ProjetoApendizado.Models.ViewModels
         public int IdSexo { get; set; }
         public string Cpf { get; set; }
 
+        public int Id { get; set; }
+
     }
 }

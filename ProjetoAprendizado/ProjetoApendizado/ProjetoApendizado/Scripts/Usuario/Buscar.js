@@ -11,6 +11,8 @@ function btnBuscar() {
     })
 }
 
+var metodoDeletar;
+
 function BuscarUsuario() {
     var objeto = MontarRequestBuscarUsuario();
 
@@ -21,6 +23,7 @@ function BuscarUsuario() {
         dataType: 'json',
         success: function (res) {
             if (res.status == 200) {
+                metodoDeletar = objeto;
 
 
 
@@ -44,7 +47,7 @@ function BuscarUsuario() {
 
                     for (var i = 0; i < res.objeto.length; i++) {
                         $("#tableUsuario").append('<tbody>');
-                        $("#tableUsuario").append("<tr>");
+                        $("#tableUsuario").append('<tr>');
 
                         $("#tableUsuario").append('<th scope="row">' + i + "</th>");
                         $("#tableUsuario").append("<td>" + res.objeto[i].Nome + "</td>");
@@ -55,10 +58,14 @@ function BuscarUsuario() {
                             '<li class="nav-item">' +
                             '<a class="nav-link btn btn-success" href="#">Alterar <span class="badge badge-light"><img src="../../Content/Usuario/alterar.png"/></span ></a >' +
                             '</li>' + '</ul>' + "</td>");
-                        $("#tableUsuario").append("<td>" +
+                        $("#tableUsuario").append("<td class='deletar' id='" + res.objeto[i].Id + "'dir='" + res.objeto[i].Nome + "' >" +
+
                             '<ul class="nav nav-pills">' +
+
                             '<li class="nav-item">' +
+
                             '<a class="nav-link btn btn-danger" href="#">Deletar <span class="badge badge-light"><img src="../../Content/Usuario/bin.png"/></span ></a >' +
+
                             '</li>' + '</ul>' + "</td>");
 
 
@@ -67,6 +74,7 @@ function BuscarUsuario() {
 
 
                     }
+                    DeletarUsuario();
                 } else {
                     $("#tableUsuario").append("<tr><td>Nenhum Usuário encontrado!</td></tr>");
                 }
@@ -80,7 +88,7 @@ function BuscarUsuario() {
     });
 };
 
-
+console.log(metodoDeletar)
 
 function MontarRequestBuscarUsuario() {
     return {
@@ -88,5 +96,22 @@ function MontarRequestBuscarUsuario() {
     }
 }
 
+function DeletarUsuario() {
+    $(".deletar").on('click', function () {
+        var id = $(this).attr("id");
+        var nome = $(this).attr("dir");
 
-//Estilizar e criar uma coluna vazia & adicionar um Botão para remover
+        if (confirm("Deseja realmente cancelar o usuario " + nome)) {
+            $.ajax({
+                type: "POST",
+                url: "/Usuario/Deletar",
+                data: { Id: id },
+                dataType: 'json',
+                success: function (res) {
+                    alert("Usuario " + nome + " excluido")
+                }
+
+            });
+        }
+    });
+}

@@ -55,5 +55,31 @@ namespace ProjetoApendizado.Repository.Services
                 return new List<Usuario>();
             }
         }
+
+        public bool Deletar(int Id)
+        {
+            try
+            {
+               var result = false;
+               var item = _db.Usuarios.Find(Id) ;
+
+                if(item != null)
+                {
+                    _db.Usuarios.Remove(item);
+                    _db.SaveChanges();
+
+                    result = true;
+                }
+                //Salvar alterações
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+
     }
 }

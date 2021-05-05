@@ -97,7 +97,6 @@ namespace ProjetoApendizado.Controllers
         }
         #endregion
 
-
         #region METODOS_BUSCAS
         [HttpGet]
         public ActionResult Buscar()
@@ -106,6 +105,7 @@ namespace ProjetoApendizado.Controllers
 
             return View();
         }
+
         [HttpPost]
         public ActionResult Buscar(string NomeUsuario)
         {
@@ -126,7 +126,8 @@ namespace ProjetoApendizado.Controllers
                         Nome = item.Nome,
                         Cpf = item.Cpf,
                         Idade = item.Idade,
-                    });
+                        Id = item.Id
+                    }); ;
 
 
                 }
@@ -142,6 +143,51 @@ namespace ProjetoApendizado.Controllers
         }
 
         #endregion
+
+        //Criar novo metodo deletar em usuario service e deletar pelo campo ID
+
+        //Verificar se voutou true e fazer o tratamentp
+
+        [HttpPost]
+        public ActionResult Deletar(int Id)
+        {
+            //CRIAR NOVO MÉTODO DELETAR EM USUARIOSERVICE (BOLEANO) E DELETAR PELO CAMPO ID.
+            try
+            {
+
+                //COMVERTER_VIEWMODEL_PARA_MODEL
+
+                var item = ConverterViewModelToMOdel(Id);
+
+                //EXECUTAR_INSERT_NO_BANCO
+
+
+                bool valida = _service.Deletar(Id);
+
+                if (valida)
+                {
+                    return Json(new { status = 200, mensagem = "Usuário excluido com sucesso!" });
+
+                }
+                else
+                {
+                    return Json(new { status = 500, mensagem = "Erro interno" });
+
+                }
+
+                //RETORNAR_ALGUMA_SATISFAÇÃO OU RETORNAR_UMA_NEGAÇÃO
+
+                // Status, Valor (N valores , N tipos), Mensagem (Opcional)
+            }
+            catch (Exception)
+            {
+                return Json(new { status = 500, mensagem = "Sistema temporariamente indisponível, favor tente novamente mais tarde!" });
+                throw;
+            }
+            //VERIFICAR SE RETORNOU TRUE E FAZER O TRATAMENTO DO RETORNO NO JQUERY.
+        }
+
+        //public boll 
 
         //METODOS_VALIDAÇÃO
         #region METODOS_PRIVADOS
@@ -209,6 +255,18 @@ namespace ProjetoApendizado.Controllers
 
             return model;
         }
+        
+        private Usuario ConverterViewModelToMOdel(int Id)
+        {
+            Usuario model = new Usuario
+            {
+                Id = Id
+            };
+
+            return model;
+        }
         #endregion
+
+
     }
 }
