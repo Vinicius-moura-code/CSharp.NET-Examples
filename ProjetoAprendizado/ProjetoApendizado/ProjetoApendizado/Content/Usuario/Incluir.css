@@ -63,18 +63,22 @@ input, select {
 @keyframes mudacor {
     0% {
         border-color: red;
+        box-shadow: red;
     }
 
     25% {
         border-color: orangered;
+        box-shadow: orangered;
     }
 
     50% {
         border-color: blue;
+        box-shadow: blue;
     }
 
     100% {
         border-color: green;
+        box-shadow: green;
     }
 }
 

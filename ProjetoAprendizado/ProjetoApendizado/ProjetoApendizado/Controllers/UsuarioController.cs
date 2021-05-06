@@ -159,10 +159,10 @@ namespace ProjetoApendizado.Controllers
 
                 var item = ConverterViewModelToMOdel(Id);
 
-                //EXECUTAR_INSERT_NO_BANCO
+                //EXECUTAR_DELETE_NO_BANCO
 
 
-                bool valida = _service.Deletar(Id);
+                bool valida = _service.Inativar(Id);
 
                 if (valida)
                 {
@@ -190,6 +190,37 @@ namespace ProjetoApendizado.Controllers
         //public boll 
 
         //METODOS_VALIDAÇÃO
+        #region Editar
+        [HttpGet]
+        public ActionResult Editar(int Id)
+        {
+            UsuarioViewModel viewModel = new UsuarioViewModel();
+
+            
+
+            return View(Id);
+        }
+
+        [HttpPost]
+        public ActionResult Editar(Usuario model)
+        {
+            try
+            {
+                return Json(new { status = 200, mensagem = "GG" });
+
+            }
+            catch (Exception)
+            {
+                return Json(new { status = 500, mensagem = "Sistema temporiamente indicponivel!!" });
+
+                throw;
+            }
+
+        }
+
+        #endregion
+
+
         #region METODOS_PRIVADOS
         private List<string> ValidacaoViewModel(UsuarioViewModel viewModel)
         {
@@ -262,6 +293,21 @@ namespace ProjetoApendizado.Controllers
             {
                 Id = Id
             };
+
+            return model;
+        }
+
+        private Usuario ConverterViewModelToModel(int Id)
+        {
+            Usuario model = new Usuario();
+
+            model.Cpf = model.Cpf;
+            model.DatadeNascimeto = model.DatadeNascimeto;
+            model.Idade = model.Idade;
+            model.Nome = model.Nome;
+            model.DataInclusao = DateTime.Now;
+            model.Ativo = true;
+            model.IdSexo = model.IdSexo;
 
             return model;
         }

@@ -35,7 +35,6 @@ function BuscarUsuario() {
 
                     $("#tableUsuario").append("<thead>");
                     $("#tableUsuario").append("<tr>");
-                    $("#tableUsuario").append('<th scope="col">#</th>');
                     $("#tableUsuario").append('<th scope="col">Nome:</th>');
                     $("#tableUsuario").append('<th scope="col">Cpf:</th>');
                     $("#tableUsuario").append('<th scope="col">Idade:</th>');
@@ -49,7 +48,6 @@ function BuscarUsuario() {
                         $("#tableUsuario").append('<tbody>');
                         $("#tableUsuario").append('<tr>');
 
-                        $("#tableUsuario").append('<th scope="row">' + i + "</th>");
                         $("#tableUsuario").append("<td>" + res.objeto[i].Nome + "</td>");
                         $("#tableUsuario").append("<td>" + res.objeto[i].Cpf + "</td>");
                         $("#tableUsuario").append("<td>" + res.objeto[i].Idade + "</td>");
@@ -108,7 +106,10 @@ function DeletarUsuario() {
                 data: { Id: id },
                 dataType: 'json',
                 success: function (res) {
-                    alert("Usuario " + nome + " excluido")
+                    if (res.status == 200 || res.status == 500) {
+                        alert("Usuario " + nome + " inativado")
+
+                    }
                 }
 
             });
