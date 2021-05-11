@@ -102,23 +102,18 @@ namespace ProjetoApendizado.Repository.Services
             }
 
         }
-        public bool Editar(Usuario model)
+        public bool BuscarUsuarioPorId(int Id)
         {
             try
             {
-                var result = false;
-                var item = _db.Usuarios.Find(model);
+                var item = _db.Usuarios.Find(Id);
 
-                if (item != null)
-                {
-                    _db.Usuarios.Add(item);
-                    _db.SaveChanges();
+                _db.SaveChanges();
 
-                    result = true;
-                }
+
                 //Salvar alterações
 
-                return result;
+                return true;
             }
             catch
             {
@@ -126,7 +121,30 @@ namespace ProjetoApendizado.Repository.Services
             }
 
         }
+        //public bool Editar(int Id)
+        //{
+        //    try
+        //    {
+        //        var result = false;
+        //        var item = _db.Usuarios.Find(Id);
 
+        //        if (item != null)
+        //        {
+        //            _db.Usuarios.Find(item);
+        //            _db.SaveChanges();
 
+        //            result = true;
+        //        }
+
+        //        //Salvar alterações
+
+        //        return result;
+        //    }
+        //    catch
+        //    {
+        //        return false;
+        //    }
+
+        //}
     }
 }

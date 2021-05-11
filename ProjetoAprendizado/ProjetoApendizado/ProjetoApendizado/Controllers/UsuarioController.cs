@@ -127,7 +127,7 @@ namespace ProjetoApendizado.Controllers
                         Cpf = item.Cpf,
                         Idade = item.Idade,
                         Id = item.Id
-                    }); ;
+                    }); 
 
 
                 }
@@ -195,10 +195,13 @@ namespace ProjetoApendizado.Controllers
         public ActionResult Editar(int Id)
         {
             UsuarioViewModel viewModel = new UsuarioViewModel();
+            var item = _service.BuscarUsuarioPorId(Id);
+
 
             
+            var usuario = ConverterViewModelToModel(viewModel);
 
-            return View(Id);
+            return View(viewModel);
         }
 
         [HttpPost]

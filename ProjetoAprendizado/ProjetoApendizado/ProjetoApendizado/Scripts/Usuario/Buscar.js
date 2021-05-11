@@ -11,7 +11,6 @@ function btnBuscar() {
     })
 }
 
-var metodoDeletar;
 
 function BuscarUsuario() {
     var objeto = MontarRequestBuscarUsuario();
@@ -23,13 +22,8 @@ function BuscarUsuario() {
         dataType: 'json',
         success: function (res) {
             if (res.status == 200) {
-                metodoDeletar = objeto;
-
-
 
                 $("#tableUsuario").html("");
-
-
 
                 if (res.objeto.length != 0) {
 
@@ -51,7 +45,7 @@ function BuscarUsuario() {
                         $("#tableUsuario").append("<td>" + res.objeto[i].Nome + "</td>");
                         $("#tableUsuario").append("<td>" + res.objeto[i].Cpf + "</td>");
                         $("#tableUsuario").append("<td>" + res.objeto[i].Idade + "</td>");
-                        $("#tableUsuario").append("<td>" +
+                        $("#tableUsuario").append("<td class='editar' id='" + res.objeto[i].Id + "'dir='" + res.objeto[i].Nome + "' >" +
                             '<ul class="nav nav-pills">' +
                             '<li class="nav-item">' +
                             '<a class="nav-link btn btn-success" href="#">Alterar <span class="badge badge-light"><img src="../../Content/Usuario/alterar.png"/></span ></a >' +
@@ -72,6 +66,7 @@ function BuscarUsuario() {
 
 
                     }
+                    Editar();
                     DeletarUsuario();
                 } else {
                     $("#tableUsuario").append("<tr><td>Nenhum Usuário encontrado!</td></tr>");
@@ -86,7 +81,6 @@ function BuscarUsuario() {
     });
 };
 
-console.log(metodoDeletar)
 
 function MontarRequestBuscarUsuario() {
     return {
@@ -114,5 +108,16 @@ function DeletarUsuario() {
 
             });
         }
+    });
+}
+
+
+function Editar() {
+    $(".editar").on('click', function () {
+        var id = $(this).attr("id");
+
+
+        window.location.href = "/Usuario/Editar?Id="+ id;
+
     });
 }
