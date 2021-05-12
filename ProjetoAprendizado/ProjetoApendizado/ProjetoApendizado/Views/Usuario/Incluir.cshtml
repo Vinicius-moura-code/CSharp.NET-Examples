@@ -9,6 +9,7 @@
 
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script src="~/Scripts/Usuario/Incluir.js"></script>
+<link href="~/Content/Usuario/Editar.css" rel="stylesheet" />
 
 
 <div class="container" id="DivUsuario">
@@ -36,7 +37,7 @@
                     <br />
 
                     <label for="txtDatadeNascimeto">Data de nascimento Usuário:</label>
-                    <input type="date" class="form-control" id="txtDatadeNascimeto" name="DatadeNascimeto" />
+                    <input value="@Model.DatadeNascimento" type="date" class="form-control" id="txtDatadeNascimeto" name="DatadeNascimeto" />
 
                     <span class="badge badge-secondary" id="errorData"></span>
 
