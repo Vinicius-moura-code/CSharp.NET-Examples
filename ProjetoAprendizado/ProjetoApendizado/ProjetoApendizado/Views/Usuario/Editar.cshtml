@@ -4,18 +4,17 @@
     ViewBag.Title = "Editar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Editar</h2>
-
-<h1>@Html.DisplayNameFor(model => model.Nome)</h1>
-
-<link href="~/Content/Usuario/Editar.css" rel="stylesheet" />
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<link href="~/Content/Usuario/Incluir.css" rel="stylesheet" />
+<link href="~/Content/Usuario/Editar.css" rel="stylesheet" />
+
 <script src="~/Scripts/Usuario/Editar.js"></script>
+
 
 <div class="container" id="DivUsuario">
     <br />
-    <h2>Incluir</h2>
+    <h2>Editar usuário</h2>
 
     <div class="row">
         <div class="col-md-4">
@@ -25,14 +24,14 @@
             <form id="frmUsuario" action="~/Usuario/Incluir" method="post">
                 <div class="form-group-sm">
                     <label for="txtNome">Nome Usuário:</label>
-                    <input type="text" class="form-control" placeholder="Insira seu nome :" id="txtNome" name="Nome" />
+                    <input value="@Model.Nome" type="text" class="form-control" placeholder="Insira seu nome :" id="txtNome" name="Nome" />
 
                     <span class="badge badge-secondary" id="errorNome"></span>
 
                     <br />
 
                     <label for="txtIdade">Idade Usuário:</label>
-                    <input type="number" class="form-control" placeholder="Insira sua idade :" min="18" max="100" id="txtIdade" name="Idade" />
+                    <input value="@Model.Idade" type="number" class="form-control" placeholder="Insira sua idade :" min="18" max="100" id="txtIdade" name="Idade" />
 
                     <span class="badge badge-secondary" id="errorIdade"></span>
                     <br />
@@ -45,12 +44,12 @@
                     <br />
 
                     <label for="txtCpf">Cpf Usuário:</label>
-                    <input type="text" class="form-control" placeholder="Insira seu CPF :" id="txtCpf" name="Cpf" maxlength="11" />
+                    <input value="@Model.Cpf" type="text" class="form-control" placeholder="Insira seu CPF :" id="txtCpf" name="Cpf" maxlength="11" />
 
                     <span class="d-block badge badge-secondary" id="errorCpf"></span>
                     <br />
 
-                    <select class="form-select" size="1" id="ddlSexo" aria-label="Default select example">
+                    <select value="@Model.IdSexo" class="form-select" size="1" id="ddlSexo" aria-label="Default select example">
                         <option value="" selected>Selecione . . .</option>
                         <option value="1">Masculino</option>
                         <option value="2">Feminino</option>
@@ -80,7 +79,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h3>Seu usuario foi cadastrado com sucesso!</h3>
+                <h3>Seu usuario foi alterado com exito!</h3>
             </div>
             <div class="modal-footer">
                 <h5>Obrigado por fazer parte da nossa história</h5>

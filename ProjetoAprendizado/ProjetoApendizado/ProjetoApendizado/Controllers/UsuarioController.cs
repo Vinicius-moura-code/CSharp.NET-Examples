@@ -127,7 +127,7 @@ namespace ProjetoApendizado.Controllers
                         Cpf = item.Cpf,
                         Idade = item.Idade,
                         Id = item.Id
-                    }); 
+                    });
 
 
                 }
@@ -194,15 +194,32 @@ namespace ProjetoApendizado.Controllers
         [HttpGet]
         public ActionResult Editar(int Id)
         {
+            var listaUsuario = _service.BuscarUsuarioPorId(Id);
+
+
             UsuarioViewModel viewModel = new UsuarioViewModel();
-            var item = _service.BuscarUsuarioPorId(Id);
 
+            Usuario model = new Usuario();
 
-            
-            var usuario = ConverterViewModelToModel(viewModel);
+            model.Nome = viewModel.Nome = listaUsuario.Nome;
+            model.Idade = viewModel.Idade = listaUsuario.Idade;
+            model.DatadeNascimeto = viewModel.DatadeNascimeto = listaUsuario.DatadeNascimeto;
+            model.Cpf = viewModel.Cpf = listaUsuario.Cpf;
+            model.IdSexo = viewModel.IdSexo = listaUsuario.IdSexo;            
+            model.Id = viewModel.Id = listaUsuario.Id;            
+
+            //    return Json(new { status = 200, objeto = listaUsuario });
+            //}
+            //catch (Exception)
+            //{
+
+            //    return Json(new { status = 500, mensagem = "Sistema temporiamente indicponivel!!" });
+            //}
 
             return View(viewModel);
+
         }
+
 
         [HttpPost]
         public ActionResult Editar(Usuario model)
@@ -289,7 +306,7 @@ namespace ProjetoApendizado.Controllers
 
             return model;
         }
-        
+
         private Usuario ConverterViewModelToMOdel(int Id)
         {
             Usuario model = new Usuario

@@ -102,22 +102,22 @@ namespace ProjetoApendizado.Repository.Services
             }
 
         }
-        public bool BuscarUsuarioPorId(int Id)
+        public Usuario BuscarUsuarioPorId(int Id)
         {
             try
             {
                 var item = _db.Usuarios.Find(Id);
 
-                _db.SaveChanges();
+                return item;
+
 
 
                 //Salvar alterações
 
-                return true;
             }
             catch
             {
-                return false;
+                return new Usuario();
             }
 
         }
