@@ -121,6 +121,26 @@ namespace ProjetoApendizado.Repository.Services
             }
 
         }
+
+        public bool  Alterar(Usuario model)
+        {
+            try
+            {
+               // var usuario = _db.Usuarios.Where();
+                //ADD -> INSERT INTO
+                //_db.Entry(usuario).CurrentValues.SetValues(model);
+
+                //Salvar alterações
+                _db.SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
         //public bool Editar(int Id)
         //{
         //    try

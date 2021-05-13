@@ -134,7 +134,7 @@ function IncluirUsuario() {
 
     $.ajax({
         type: "POST",
-        url: "/Usuario/Incluir",
+        url: "/Usuario/Editar",
         data: objeto,
         dataType: 'json',
         success: function (res) {

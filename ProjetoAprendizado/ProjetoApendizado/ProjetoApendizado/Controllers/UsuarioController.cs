@@ -222,18 +222,47 @@ namespace ProjetoApendizado.Controllers
 
 
         [HttpPost]
-        public ActionResult Editar(Usuario model)
+        public ActionResult Editar(UsuarioViewModel viewModel)
         {
             try
             {
-                return Json(new { status = 200, mensagem = "GG" });
 
+                //var teste = "Rafael Nascimento."
+                //replace('.',',') -> Rafael Nascimento,
+
+                //VALIDAÇÃO_BASICA_DO_VIEW_MODEL
+                var retornoValidacao = ValidacaoViewModel(viewModel);
+
+                if (retornoValidacao.Count() > 0)
+                    return Json(new { status = 404, erros = retornoValidacao.ToList() });
+
+                //COMVERTER_VIEWMODEL_PARA_MODEL
+
+                var usuario = ConverterViewModelToModel(viewModel);
+
+                //EXECUTAR_INSERT_NO_BANCO
+
+
+                bool valida = _service.Alterar(usuario);
+
+                if (valida)
+                {
+                    return Json(new { status = 200, mensagem = "Usuário Incluído com sucesso!" });
+
+                }
+                else
+                {
+                    return Json(new { status = 500, mensagem = "Erro interno" });
+
+                }
+
+                //RETORNAR_ALGUMA_SATISFAÇÃO OU RETORNAR_UMA_NEGAÇÃO
+
+                // Status, Valor (N valores , N tipos), Mensagem (Opcional)
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Json(new { status = 500, mensagem = "Sistema temporiamente indicponivel!!" });
-
-                throw;
+                return Json(new { status = 500, mensagem = "Sistema temporariamente indisponível, favor tente novamente mais tarde!" });
             }
 
         }
