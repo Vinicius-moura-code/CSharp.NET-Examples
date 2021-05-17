@@ -6,6 +6,7 @@ $(document).ready(function () {
 
 function btnBuscar() {
     $("#btnBuscar").on('click', function () {
+        $(".loader-wrapper").fadeIn(10);
 
         BuscarUsuario();
     })
@@ -72,6 +73,7 @@ function BuscarUsuario() {
                     $("#tableUsuario").append("<tr><td>Nenhum Usuário encontrado!</td></tr>");
                 }
 
+                $(".loader-wrapper").fadeOut(3000);
 
 
             } else if (res.status == 500) {
@@ -117,7 +119,7 @@ function Editar() {
         var id = $(this).attr("id");
 
 
-        window.location.href = "/Usuario/Editar?Id="+ id;
+        window.location.href = "/Usuario/Editar?Id=" + id;
 
     });
 }

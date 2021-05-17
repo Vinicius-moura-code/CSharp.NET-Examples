@@ -1,6 +1,4 @@
-﻿@*model List<ProjetoApendizado.Models.ViewModels.SexoViewModels>*@
-
-@{
+﻿@{
     ViewBag.Title = "Incluir";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -9,15 +7,15 @@
 
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script src="~/Scripts/Usuario/Incluir.js"></script>
-<link href="~/Content/Usuario/Editar.css" rel="stylesheet" />
 
 
 <div class="container" id="DivUsuario">
     <br />
-    <h2>Incluir</h2>
 
     <div class="row">
         <div class="col-md-4">
+            <h2>Incluir</h2>
+
         </div>
         <div class="col-md-4">
 
@@ -37,7 +35,7 @@
                     <br />
 
                     <label for="txtDatadeNascimeto">Data de nascimento Usuário:</label>
-                    <input value="@Model.DatadeNascimento" type="date" class="form-control" id="txtDatadeNascimetobh" name="DatadeNascimeto" />
+                    <input type="date" class="form-control" id="txtDatadeNascimeto" name="DatadeNascimeto" />
 
                     <span class="badge badge-secondary" id="errorData"></span>
 

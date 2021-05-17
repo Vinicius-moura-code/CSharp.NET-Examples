@@ -37,7 +37,7 @@
                     <br />
 
                     <label for="txtDatadeNascimeto">Data de nascimento Usuário:</label>
-                    <input type="date" class="form-control" id="txtDatadeNascimeto" name="DatadeNascimeto" />
+                    <input value="@Model.DatadeNascimeto.ToString("yyyy-MM-dd")" type="date" class="form-control" id="txtDatadeNascimeto" name="DatadeNascimeto" />
 
                     <span class="badge badge-secondary" id="errorData"></span>
 
@@ -49,10 +49,9 @@
                     <span class="d-block badge badge-secondary" id="errorCpf"></span>
                     <br />
 
-                    <select value="@Model.IdSexo" class="form-select" size="1" id="ddlSexo" aria-label="Default select example">
-                        <option value="" selected>Selecione . . .</option>
-                        <option value="1">Masculino</option>
-                        <option value="2">Feminino</option>
+                    <select class="form-select" size="1" id="ddlSexo" aria-label="Default select example">
+                        <option value="1" @(Model.IdSexo == 1 ? "selected" : "")>Masculino</option>
+                        <option value="2" @(Model.IdSexo == 2 ? "selected" : "")>Feminino</option>
                     </select>
 
                     <span class=" d-block badge badge-secondary" id="errorSexo"></span>
@@ -60,7 +59,7 @@
                     <br />
                     <div id="divErro">
                     </div>
-                    <button type="button" class="btn btn-outline-success" id="btnSalvar" value="Salvar">Salvar</button>
+                    <button type="button" class="btn btn-outline-success" id="btnSalvar" value="Salvar">Alterar</button>
                 </div>
             </form>
         </div>
@@ -69,6 +68,7 @@
     </div>
 </div>
 
+<input id="ddlID" hidden value="@Model.Id"></input>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

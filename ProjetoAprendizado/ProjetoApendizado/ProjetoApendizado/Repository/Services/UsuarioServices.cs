@@ -126,9 +126,20 @@ namespace ProjetoApendizado.Repository.Services
         {
             try
             {
-               // var usuario = _db.Usuarios.Where();
-                //ADD -> INSERT INTO
-                //_db.Entry(usuario).CurrentValues.SetValues(model);
+                var usuario = _db.Usuarios.Find(model.Id);
+                //ADD->INSERT INTO
+
+                usuario.Nome = model.Nome;
+                usuario.Idade = model.Idade;
+                usuario.DatadeNascimeto = model.DatadeNascimeto;
+                usuario.IdSexo = model.IdSexo;
+                usuario.Cpf = model.Cpf;
+                usuario.DataInclusao = model.DataInclusao;
+                usuario.Ativo = model.Ativo;
+
+                
+                
+                //_db.Entry(usuario).CurrentValues.SetValues(model); TESTAR
 
                 //Salvar alterações
                 _db.SaveChanges();

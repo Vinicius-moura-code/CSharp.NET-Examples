@@ -144,7 +144,6 @@ function IncluirUsuario() {
                 alert(res.mensagem);
             } else {
                 var listaErro = "";
-                //LIST - STRING  [{"Preencha campo Nome"}, {"Preencha campo Cpf"}]
                 $("#divErro").html("");
 
                 var divErro = $("#divErro")
@@ -162,24 +161,7 @@ function IncluirUsuario() {
 
     });
 
-    //$.post('/Usuario/Incluir', objeto).done(function (res) { //res - Response
 
-    //    //200  - Ok, 500 - ErroInterno, 404 - ErroValidacao
-    //    if (res.status == 200) {
-    //        alert(res.mensagem);
-    //    } else if (res.status == 500) {
-    //        alert(res.mensagem);
-    //    }
-    //    else {
-    //        //Validação de tela;
-    //        var listaErro = "";
-    //        //LIST - STRING  [{"Preencha campo Nome"}, {"Preencha campo Cpf"}]
-    //        for (var i = 0; i < res.erros.length; i++) {
-    //            listaErro += res.erros[i] + "\n\n";
-    //        }
-    //        alert(listaErro);
-    //    }
-    //});
 
 }
 
@@ -189,10 +171,7 @@ function MontarRequestIncluir() {
         Idade: $("#txtIdade").val(),
         Cpf: $("#txtCpf").val(),
         DatadeNascimeto: $("#txtDatadeNascimeto").val(),
-        IdSexo: $('#ddlSexo').val()
+        IdSexo: $('#ddlSexo').val(),
+        Id: $('#ddlID').val()
     };
 }
-
-//Estrutura OBJ -> { NOME_CAMPO: "VALOR_CAMPO_STRING" , NOME_CAMPO: VALOR_CAMPO_INTEIRO }
-
-//Dois Insert manual Sexo1

@@ -38,8 +38,23 @@
         </footer>
     </div>
 
+    <div class="loader-wrapper">
+        <span class="loader">
+            <span class="loader-inner">
+            </span>
+        </span>
+    </div>
+
+
+
     @Scripts.Render("~/bundles/jquery")
+    <script>
+        $(window).on("load", function () {
+            $(".loader-wrapper").fadeOut(1500);
+        });
+    </script>
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>
+

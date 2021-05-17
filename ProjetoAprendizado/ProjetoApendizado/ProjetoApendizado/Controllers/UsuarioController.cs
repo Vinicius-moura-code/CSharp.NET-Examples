@@ -194,19 +194,17 @@ namespace ProjetoApendizado.Controllers
         [HttpGet]
         public ActionResult Editar(int Id)
         {
-            var listaUsuario = _service.BuscarUsuarioPorId(Id);
+            var usuario = _service.BuscarUsuarioPorId(Id);
 
 
             UsuarioViewModel viewModel = new UsuarioViewModel();
 
-            Usuario model = new Usuario();
-
-            model.Nome = viewModel.Nome = listaUsuario.Nome;
-            model.Idade = viewModel.Idade = listaUsuario.Idade;
-            model.DatadeNascimeto = viewModel.DatadeNascimeto = listaUsuario.DatadeNascimeto;
-            model.Cpf = viewModel.Cpf = listaUsuario.Cpf;
-            model.IdSexo = viewModel.IdSexo = listaUsuario.IdSexo;            
-            model.Id = viewModel.Id = listaUsuario.Id;            
+            viewModel.Nome = usuario.Nome;
+            viewModel.Idade = usuario.Idade;
+            viewModel.DatadeNascimeto = usuario.DatadeNascimeto;
+            viewModel.Cpf = usuario.Cpf;
+            viewModel.IdSexo = usuario.IdSexo;            
+            viewModel.Id = Id;            
 
             //    return Json(new { status = 200, objeto = listaUsuario });
             //}
@@ -226,9 +224,6 @@ namespace ProjetoApendizado.Controllers
         {
             try
             {
-
-                //var teste = "Rafael Nascimento."
-                //replace('.',',') -> Rafael Nascimento,
 
                 //VALIDAÇÃO_BASICA_DO_VIEW_MODEL
                 var retornoValidacao = ValidacaoViewModel(viewModel);
@@ -318,6 +313,7 @@ namespace ProjetoApendizado.Controllers
         {
             Usuario model = new Usuario();
 
+            model.Id = viewModel.Id;
             model.Cpf = viewModel.Cpf;
             model.DatadeNascimeto = viewModel.DatadeNascimeto;
             model.Idade = viewModel.Idade;
@@ -346,20 +342,7 @@ namespace ProjetoApendizado.Controllers
             return model;
         }
 
-        private Usuario ConverterViewModelToModel(int Id)
-        {
-            Usuario model = new Usuario();
 
-            model.Cpf = model.Cpf;
-            model.DatadeNascimeto = model.DatadeNascimeto;
-            model.Idade = model.Idade;
-            model.Nome = model.Nome;
-            model.DataInclusao = DateTime.Now;
-            model.Ativo = true;
-            model.IdSexo = model.IdSexo;
-
-            return model;
-        }
         #endregion
 
 

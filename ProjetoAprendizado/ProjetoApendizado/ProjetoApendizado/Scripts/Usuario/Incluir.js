@@ -8,7 +8,7 @@ function btnSalvar() {
     $("#btnSalvar").on('click', function () {
 
         if (ValidacaoForm()) {
-            console.log("Validação Ok");
+            $(".loader-wrapper").fadeIn(10);
             IncluirUsuario();
         }
     })
@@ -139,7 +139,9 @@ function IncluirUsuario() {
         dataType: 'json',
         success: function (res) {
             if (res.status == 200) {
-                $('#exampleModal').modal('show');
+                $(".loader-wrapper").fadeOut(3000);
+
+                $('#exampleModal').fadeIn(3500).modal('show');
             } else if (res.status == 500) {
                 alert(res.mensagem);
             } else {
