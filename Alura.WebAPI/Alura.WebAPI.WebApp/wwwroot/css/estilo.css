@@ -1,0 +1,106 @@
+body {
+  /* font-family: 'Crimson Text', serif; */
+  font-family: 'Roboto', sans-serif;
+  /*background-color: #ffe7bc;*/
+}
+
+.bg-dark {
+  background-color: black !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+}
+.navbar-brand img {
+  height: 30px;
+}
+
+main {
+  margin-top: 90px;
+  margin-bottom: 40px;
+}
+
+.droppable{
+  border: 2px solid red;
+}
+
+.lista-leitura {
+  padding-left: 0px;
+  padding-right: 0px;
+  margin: 0px auto;
+}
+
+.lista-leitura ul {
+    padding: 0px;
+}
+
+.livro {
+    border: 1px solid black;
+}
+
+nav p {
+  color: white;
+  margin-bottom: 0px;
+}
+
+footer {
+    height: 50px;
+}
+
+footer p {
+    color: white;
+    line-height: 50px;
+}
+
+.novo-livro:hover {
+  cursor: pointer;
+}
+
+.livro.draggable {
+  /* -ms-transform: rotate(15deg); /* IE 9 */
+  /* -webkit-transform: rotate(15deg); /* Safari */
+  /* transform: rotate(15deg); */
+  transform: scale(0.7, 0.7) rotate(15deg);
+}
+
+.capa {
+  margin: 10px auto;
+}
+
+
+/* BOTÃO FLUTUANTE (Material Design)
+    Crétidos: 
+    Simone Bernabé @simoberny
+    https://codepen.io/simoberny/pen/pJZJQY 
+*/
+#novo-flutuante {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #db4437;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px #666;
+    z-index: 99;
+}
+
+.plus {
+    color: white;
+    position: absolute;
+    top: 0;
+    display: block;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    line-height: 55px;
+    font-size: 38px;
+    font-family: 'Roboto';
+    font-weight: 300;
+    animation: plus-out 0.3s;
+    transition: all 0.3s;
+}

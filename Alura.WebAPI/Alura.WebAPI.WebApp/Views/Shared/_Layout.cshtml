@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Leitura</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/estilo.css" />
+</head>
+<body class="d-flex flex-column" style="min-height: 100vh">
+
+    <nav class="nav navbar bg-dark fixed-top">
+        <a asp-action="Index" asp-controller="Home" class="navbar-brand">
+            <img src="~/images/logo.png" alt="Lista de Leitura - Casa do Código">
+        </a>
+    </nav>
+
+    <div class="container-fluid flex-grow-1">
+        @RenderBody()
+    </div>
+
+    <footer class="bg-dark text-center text-white">
+        <p class="my-0">Casa do Código &copy; 2018</p>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/jquery-ui/dist/jquery-ui.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

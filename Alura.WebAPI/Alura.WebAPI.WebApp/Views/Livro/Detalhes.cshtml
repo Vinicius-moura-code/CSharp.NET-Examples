@@ -1,0 +1,105 @@
+﻿@model LivroUpload
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Novo Livro</h2>
+
+<main>
+
+    <form class="row" role="form" enctype="multipart/form-data" asp-action="Detalhes" method="post">
+
+        <input type="hidden" asp-for="Id" />
+
+        <div class="col-5 text-center">
+            <div class="capa">
+                <img class="livro img-fluid"
+                     id="imgCapa"
+                     src="/Livro/ImagemCapa/@Model.Id" 
+                     alt="@Model.Titulo" 
+                     data-id="@Model.Id" />
+
+                <p class="py-3">
+                    <label class="btn btn-outline-dark">
+                        Alterar Capa
+                        <input id="ImagemCapa" asp-for="@Model.Capa" type="file" class="d-none" accept="image/x-png" />
+                    </label>
+                </p>
+            </div>
+        </div>
+
+        <div class="col-5">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Titulo" class="control-label"></label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Subtitulo" class="control-label"></label>
+                <input asp-for="Subtitulo" class="form-control" />
+                <span asp-validation-for="Subtitulo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Resumo" class="control-label"></label>
+                <textarea asp-for="Resumo" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Resumo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Autor" class="control-label"></label>
+                <input asp-for="Autor" class="form-control" />
+                <span asp-validation-for="Autor" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Lista" class="control-label"></label>
+                <select asp-for="Lista" class="form-control">
+                    @foreach (var tipo in Enum.GetValues(typeof(TipoListaLeitura)))
+                    {
+                        <option value="@tipo">@tipo</option>
+                    }
+                </select>
+                <span asp-validation-for="Capa" class="text-danger"></span>
+            </div>
+
+            <footer class="form-group">
+                <button class="btn btn-outline-success">GRAVAR</button>
+                <button id="btnExcluir" class="btn btn-outline-danger">EXCLUIR</button>
+            </footer>
+        </div>
+
+    </form>
+
+</main>
+
+@section Scripts{ 
+    <script>
+        $(function () {
+            $('#btnExcluir').click(function () {
+                $('form').attr('action', '/Livro/Remover');
+                $('form').submit();
+            });
+            $('#ImagemCapa').change(function () {
+                var input = this;
+                var url = $(this).val();
+                var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+                if (input.files && input.files[0] && (ext == "png")) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        console.log("chegou aqui!");
+                        $('#imgCapa').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+                else {
+                    $('#imgCapa').attr('src', '~/images/capas/capa-vazia.png');
+                }
+            });
+        });
+    </script>
+}

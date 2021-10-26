@@ -1,0 +1,49 @@
+﻿@model HomeViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <a asp-action="Novo" asp-controller="Livro" id="novo-flutuante" >
+        <p class="plus">+</p>
+    </a>
+
+    <div class="row">
+        <div class="card col-md-6 col-lg-3 lista-leitura" id="coluna-paraler" data-id="paraler">
+            <h4 class="card-header">Para Ler</h4>
+            <ul class="">
+                @foreach (var livro in Model.ParaLer)
+                {
+                    <partial name="~/Views/Shared/Livro.cshtml" model="livro" />
+                }
+            </ul>
+        </div>
+        <!--fim #coluna-paraler-->
+
+        <div class="card col-md-6 col-lg-3 lista-leitura" id="coluna-lendo" data-id="lendo">
+            <h4 class="card-header">Lendo</h4>
+            <ul class="list-group">
+                @foreach (var livro in Model.Lendo)
+                {
+                    <partial name="~/Views/Shared/Livro.cshtml" model="livro" />
+                }
+            </ul>
+        </div>
+        <!--fim #coluna-lendo-->
+
+        <div class="card col-md-6 col-lg-3 lista-leitura" id="coluna-lidos" data-id="lidos">
+            <h4 class="card-header">Lidos</h4>
+            <ul class="">
+                @foreach (var livro in Model.Lidos)
+                {
+                    <partial name="~/Views/Shared/Livro.cshtml" model="livro" />
+                }
+            </ul>
+        </div>
+        <!--fim #coluna-lidos-->
+    </div>
+
+
+
+</main>
