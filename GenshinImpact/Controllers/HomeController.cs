@@ -13,12 +13,12 @@ namespace GenshinImpact.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly GenshinDataService _service;
+        private readonly Repository.Services.Interfaces.CharacterService _servicec;
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _service = new GenshinDataService();
+            _servicec = new Repository.Services.Interfaces.CharacterService();
         }
 
         public IActionResult Index()
@@ -27,54 +27,29 @@ namespace GenshinImpact.Controllers
         }
 
         [HttpGet]
-        public IActionResult Characters()
+        public async Task<IActionResult> Characters()
         {
+            var listCharacter = await _servicec.getCharactersAsync();
 
-            var listCharacter = _service.getCharactersAsync();
+            Characters character = new Characters();
 
-            var chars = listCharacter.Result;
+            foreach (var item in listCharacter)
+            {
+                character.NamesChaars.Add(
 
-            return View(chars);
+                item.ToString()
+                );
+            }
+
+            return View(character);
         }
-
 
         [HttpPost]
         public IActionResult getCharacters()
         {
-            List<Characters> character = new List<Characters>();
-            try
-            {
-                var listCharacter = _service.getCharactersAsync();
-
-                var chars = listCharacter.Result;
-
-                return View(chars);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
 
             return View();
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         public IActionResult Privacy()
         {

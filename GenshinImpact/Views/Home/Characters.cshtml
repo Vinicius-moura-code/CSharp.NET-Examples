@@ -1,12 +1,11 @@
 ﻿@model Characters
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+
 
 <div class="comporta">
-    <input type="number" value="@Model.Id" name="id" />
-    <input type="text" value="@Model.Name" name="name" />
-
+    @foreach (var item in Model.NamesChaars)
+    {
+        <p>
+            item
+        </p>
+    }
 </div>
