@@ -10,31 +10,22 @@ namespace GenshinImpact.Models
     {
         private int id;
         private String name;
-        private String slug;
-        private String rarity;
-        private int atk;
-        private String obtain;
         private String type;
+        private int rarity;
+        private int baseAttack;
+        private String subStat;
+        private String passiveName;
+        private String subSpassiveDesctat;
+        private String location;
 
-        [JsonProperty("id")]
         public int Id { get => id; set => id = value; }
-
-        [JsonProperty("name")]
         public string Name { get => name; set => name = value; }
-
-        [JsonProperty("slug")]
-        public string Slug { get => slug; set => slug = value; }
-
-        [JsonProperty("rarity")]
-        public string Rarity { get => rarity; set => rarity = value; }
-
-        [JsonProperty("atk")]
-        public int Atk { get => atk; set => atk = value; }
-
-        [JsonProperty("obtain")]
-        public string Obtain { get => obtain; set => obtain = value; }
-
-        [JsonProperty("type")]
         public string Type { get => type; set => type = value; }
+        public int Rarity { get => rarity; set => rarity = value; }
+        public int BaseAttack { get => baseAttack; set => baseAttack = value; }
+        public string SubStat { get => subStat; set => subStat = value; }
+        public string PassiveName { get => passiveName; set => passiveName = value; }
+        public string SubSpassiveDesctat { get => subSpassiveDesctat; set => subSpassiveDesctat = value; }
+        public string Location { get => location; set => location = value; }
     }
 }

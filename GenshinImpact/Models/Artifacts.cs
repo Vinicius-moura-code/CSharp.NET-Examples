@@ -11,9 +11,9 @@ namespace GenshinImpact.Models
     {
         private int id;
         private String name;
-        private String slug;
-        private String second_set_bonus;
-        private String fourth_set_bonus;
+        private int max_rarity;
+        private String two_piece_bonus;
+        private String four_piece__bonus;
 
         [Key]
         public int Id { get => id; set => id = value; }
@@ -22,10 +22,8 @@ namespace GenshinImpact.Models
         [MaxLength(100)]
         public string Name { get => name; set => name = value; }
 
-        public string Slug { get => slug; set => slug = value; }
-
-        public string Second_set_bonus { get => second_set_bonus; set => second_set_bonus = value; }
-
-        public string Fourth_set_bonus { get => fourth_set_bonus; set => fourth_set_bonus = value; }
+        public int Max_rarity { get => max_rarity; set => max_rarity = value; }
+        public string Two_piece_bonus { get => two_piece_bonus; set => two_piece_bonus = value; }
+        public string Four_piece__bonus { get => four_piece__bonus; set => four_piece__bonus = value; }
     }
 }
