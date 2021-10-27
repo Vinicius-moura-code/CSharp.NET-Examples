@@ -29,25 +29,12 @@ namespace GenshinImpact.Controllers
         [HttpGet]
         public async Task<IActionResult> Characters()
         {
-            var listCharacter = await _servicec.getCharactersAsync();
-
-            Characters character = new Characters();
-
-            foreach (var item in listCharacter)
-            {
-                character.NamesChaars.Add(
-
-                item.ToString()
-                );
-            }
-
-            return View(character);
+            return View();
         }
 
         [HttpPost]
         public IActionResult getCharacters()
         {
-
             return View();
         }
 
