@@ -1,8 +1,5 @@
 ﻿using GenshinImpact.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Data.SqlClient;
-using System.Reflection;
-using System.Globalization;
 
 namespace GenshinImpact.Repository
 {
@@ -22,6 +19,7 @@ namespace GenshinImpact.Repository
         public DbSet<Domains> Domains { get; set; }
         public DbSet<Drops> Drops { get; set; }
         public DbSet<Elemental> Elemental { get; set; }
+        public DbSet<ElementalDesciption> ElementalDesciption { get; set; }
         public DbSet<Elements> Elements { get; set; }
         public DbSet<Enemies> Enemies { get; set; }
         public DbSet<Materials> Materials { get; set; }

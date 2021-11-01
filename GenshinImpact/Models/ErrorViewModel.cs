@@ -1,5 +1,3 @@
-using System;
-
 namespace GenshinImpact.Models
 {
     public class ErrorViewModel

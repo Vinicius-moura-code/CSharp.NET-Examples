@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace GenshinImpact.Repository.Services
+﻿namespace GenshinImpact.Repository.Services
 {
     public class WeaponsService
     {

@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GenshinImpact.Models
 {
+    [Table("Weapons")]
     public class Weapons
     {
         private int id;
@@ -18,8 +18,12 @@ namespace GenshinImpact.Models
         private String subSpassiveDesctat;
         private String location;
 
+        [Key]
         public int Id { get => id; set => id = value; }
+
+        [Required]
         public string Name { get => name; set => name = value; }
+
         public string Type { get => type; set => type = value; }
         public int Rarity { get => rarity; set => rarity = value; }
         public int BaseAttack { get => baseAttack; set => baseAttack = value; }

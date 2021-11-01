@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GenshinImpact.Models
 {
+    [Table("ConsumablesFood")]
     public class ConsumablesFood
     {
         private int id;
@@ -17,8 +17,12 @@ namespace GenshinImpact.Models
         private int proficiency;
         private List<Recipe> recipe;
 
+        [Key]
         public int Id { get => id; set => id = value; }
+
+        [Required]
         public string Name { get => name; set => name = value; }
+
         public int Rarity { get => rarity; set => rarity = value; }
         public string Type { get => type; set => type = value; }
         public string Effect { get => effect; set => effect = value; }
